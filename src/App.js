@@ -1,6 +1,6 @@
 import './App.css';
 import {useEffect} from "react";
-import {useTelegram} from "../../hooks/useTelegram";
+import {useTelegram} from "./hooks/useTelegram.js";
 
 const tg = window.Telegram.WebApp;
 
@@ -10,8 +10,6 @@ function App() {
     useEffect(() => {
         tg.ready();
     }, [])
-
-
 
   return (
     <div className="App">
