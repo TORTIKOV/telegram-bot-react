@@ -9,11 +9,6 @@ const Form = () => {
     const [floor, setFloor] = useState('0');
     const [room, setRoom] = useState('0');
 
-    // New state variables to track whether each select element is selected or not
-    const [isDormSelected, setIsDormSelected] = useState(false);
-    const [isFloorSelected, setIsFloorSelected] = useState(false);
-    const [isRoomSelected, setIsRoomSelected] = useState(false);
-
     const { tg } = useTelegram();
 
     const onSendData = useCallback(() => {
@@ -64,27 +59,17 @@ const Form = () => {
 
     const onChangeDorm = (e) => {
         setDorm(e.target.value);
-        setIsDormSelected(true);
-        setIsFloorSelected(false);
-        setIsRoomSelected(false);
         setFloor('0');
         setRoom('0');
     };
 
     const onChangeFloor = (e) => {
-        if (isDormSelected) {
-            setFloor(e.target.value);
-            setIsFloorSelected(true);
-            setIsRoomSelected(false);
-            setRoom('0');
-        }
+        setFloor(e.target.value);
+        setRoom('0');
     };
 
     const onChangeRoom = (e) => {
-        if (isFloorSelected) {
-            setRoom(e.target.value);
-            setIsRoomSelected(true);
-        }
+        setRoom(e.target.value);
     };
 
     return (
@@ -120,46 +105,50 @@ const Form = () => {
                     <option value={'23'}>№23</option>
                 </select>
             </div>
-            <div>
-                <label htmlFor="floor">Этаж </label>
-                <select value={floor} onChange={onChangeFloor} className={'select'}>
-                    <option value={'0'}>Не указан</option>
-                    <option value={'1'}>1</option>
-                    <option value={'2'}>2</option>
-                    <option value={'3'}>3</option>
-                    <option value={'4'}>4</option>
-                    <option value={'5'}>5</option>
-                    <option value={'6'}>6</option>
-                    <option value={'7'}>7</option>
-                    <option value={'8'}>8</option>
-                    <option value={'9'}>9</option>
-                    <option value={'10'}>10</option>
-                    <option value={'11'}>11</option>
-                    <option value={'12'}>12</option>
-                    <option value={'13'}>13</option>
-                    <option value={'14'}>14</option>
-                </select>
-            </div>
-            <div>
-                <label htmlFor="room">Номер комнаты </label>
-                <select value={room} onChange={onChangeRoom} className={'select'}>
-                    <option value={'0'}>Не указан</option>               
-                    <option value={'1'}>1</option>
-                    <option value={'2'}>2</option>
-                    <option value={'3'}>3</option>
-                    <option value={'4'}>4</option>
-                    <option value={'5'}>5</option>
-                    <option value={'6'}>6</option>
-                    <option value={'7'}>7</option>
-                    <option value={'8'}>8</option>
-                    <option value={'9'}>9</option>
-                    <option value={'10'}>10</option>
-                    <option value={'11'}>11</option>
-                    <option value={'12'}>12</option>
-                    <option value={'13'}>13</option>
-                    <option value={'14'}>14</option>
-                </select>
-            </div>
+            {dorm !== '0' && (  // Conditionally render the floor select based on dorm selection
+                <div>
+                    <label htmlFor="floor">Этаж </label>
+                    <select value={floor} onChange={onChangeFloor} className={'select'}>
+                        <option value={'0'}>Не указан</option>
+                        <option value={'1'}>1</option>
+                        <option value={'2'}>2</option>
+                        <option value={'3'}>3</option>
+                        <option value={'4'}>4</option>
+                        <option value={'5'}>5</option>
+                        <option value={'6'}>6</option>
+                        <option value={'7'}>7</option>
+                        <option value={'8'}>8</option>
+                        <option value={'9'}>9</option>
+                        <option value={'10'}>10</option>
+                        <option value={'11'}>11</option>
+                        <option value={'12'}>12</option>
+                        <option value={'13'}>13</option>
+                        <option value={'14'}>14</option>
+                    </select>
+                </div>
+            )}
+            {floor !== '0' && (  // Conditionally render the room select based on floor selection
+                <div>
+                    <label htmlFor="room">Номер комнаты </label>
+                    <select value={room} onChange={onChangeRoom} className={'select'}>
+                        <option value={'0'}>Не указан</option>               
+                        <option value={'1'}>1</option>
+                        <option value={'2'}>2</option>
+                        <option value={'3'}>3</option>
+                        <option value={'4'}>4</option>
+                        <option value={'5'}>5</option>
+                        <option value={'6'}>6</option>
+                        <option value={'7'}>7</option>
+                        <option value={'8'}>8</option>
+                        <option value={'9'}>9</option>
+                        <option value={'10'}>10</option>
+                        <option value={'11'}>11</option>
+                        <option value={'12'}>12</option>
+                        <option value={'13'}>13</option>
+                        <option value={'14'}>14</option>
+                    </select>
+                </div>
+            )}
         </div>
     );
 };
