@@ -3,11 +3,11 @@ import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
-    const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
-    const [dorm, setDorm] = useState('');
-    const [floor, setFloor] = useState('');
-    const [room, setRoom] = useState('');
+    const [name, setName] = useState('0');
+    const [phone, setPhone] = useState('0');
+    const [dorm, setDorm] = useState('0');
+    const [floor, setFloor] = useState('0');
+    const [room, setRoom] = useState('0');
 
     const {tg} = useTelegram();
 
@@ -36,12 +36,13 @@ const Form = () => {
     }, [])
 
     useEffect(() => {
-        if(!phone || !name || phone.length < 11) {
+        if (!phone || typeof phone !== "number" || isNaN(phone) || phone.toString().length !== 11 || !name) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [name, phone])
+    }, [name, phone]);
+    
 
     const onChangeName = (e) => {
         setName(e.target.value)
