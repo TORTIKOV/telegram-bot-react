@@ -11,16 +11,16 @@ const Form = () => {
 
     const {tg} = useTelegram();
 
-    const onSendData = useCallback(() => {
-        const data = {
-            name: name,
-            phone: phone,
-            dorm: dorm,
-            floor: floor,
-            room: room
-        }
-        tg.sendData(JSON.stringify(data));
-    }, [name, phone, dorm, floor, room])
+
+    const data = {
+        name: name,
+        phone: phone,
+        dorm: dorm,
+        floor: floor,
+        room: room
+    }
+    tg.sendData(JSON.stringify(data));
+
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -36,7 +36,7 @@ const Form = () => {
     }, [])
 
     useEffect(() => {
-        if(!phone || !name) {
+        if(!phone || !name || phone.length < 11) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
