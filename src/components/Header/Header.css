@@ -1,11 +1,26 @@
-.header {
+/* Assuming you have defined your custom CSS variables for theme colors somewhere in your CSS or using CSS variables in a CSS-in-JS solution */
+:root {
+    --tg-theme-button-color: #3498db; /* Replace with your desired button background color */
+    --tg-theme-button-text-color: #ffffff; /* Replace with your desired button text color */
+    --tg-theme-input-border-color: #ccc; /* Replace with your desired input border color */
+    --tg-theme-input-focus-border-color: #3498db; /* Replace with your desired input focus border color */
+  }
+  
+  .header {
     width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
     padding: 0 20px;
-}
-
-.username {
-    nargin-left: auto;
-}
+    background: var(--tg-theme-button-color); /* Use the same button background color for the header */
+    color: var(--tg-theme-button-text-color); /* Use the same button text color for the header */
+    font-family: "Helvetica", Arial, sans-serif; /* Replace with your desired font */
+    font-size: 18px; /* Replace with your desired font size */
+    text-align: center;
+  }
+  
+  .username {
+    margin-left: auto;
+    /* Add any additional styles you want for the username element */
+  }
+  

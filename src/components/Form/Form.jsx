@@ -80,7 +80,7 @@ const Form = () => {
                 onChange={onChanhePhone}
             />
             <div>
-            <text>Номер общежития </text>
+            <label htmlFor="dorm">Номер общежития </label>
             <select value={dorm} onChange={onChangeDorm} className={'select'}>
                 <option value={'10'}>№10</option>
                 <option value={'12'}>№12</option>
@@ -95,7 +95,7 @@ const Form = () => {
             </select>
             </div>
             <div>
-            <text>Этаж </text>
+            <label htmlFor="floor">Этаж </label>
             <select value={floor} onChange={onChangeFloor} className={'select'}>
                 <option value={'1'}>1</option>
                 <option value={'2'}>2</option>
@@ -114,7 +114,7 @@ const Form = () => {
             </select>
             </div>
             <div>
-            <text>Номер комнаты </text>
+            <label htmlFor="room">Номер комнаты </label>
             <select value={room} onChange={onChangeRoom} className={'select'}>
                 <option value={'1'}>1</option>
                 <option value={'2'}>2</option>

@@ -1,8 +1,21 @@
-.button {
+/* Assuming you have defined your custom CSS variables for theme colors somewhere in your CSS or using CSS variables in a CSS-in-JS solution */
+:root {
+    --tg-theme-button-color: #3498db; /* Replace with your desired button background color */
+    --tg-theme-button-text-color: #ffffff; /* Replace with your desired button text color */
+  }
+  
+  .button {
     padding: 10px 15px;
     background: var(--tg-theme-button-color);
-    color: var(--tg-theme-button-text-coloe);
+    color: var(--tg-theme-button-text-color);
     border: none;
     outline: none;
     cursor: pointer;
-}
+    font-family: "Helvetica", Arial, sans-serif; /* Replace with your desired font */
+    font-size: 16px; /* Replace with your desired font size */
+    font-weight: bold; /* Replace with your desired font weight */
+    border-radius: 5px; /* Add a border-radius for a rounded button */
+    /* Add any additional styles you want for the button, e.g., box-shadow, hover effects, etc. */
+    text-align: center;
+  }
+  
