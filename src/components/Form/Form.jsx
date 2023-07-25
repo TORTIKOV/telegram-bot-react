@@ -3,8 +3,8 @@ import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
-    const [name, setName] = useState('0');
-    const [phone, setPhone] = useState('0');
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('71232281488');
     const [dorm, setDorm] = useState('0');
     const [floor, setFloor] = useState('0');
     const [room, setRoom] = useState('0');
@@ -92,6 +92,7 @@ const Form = () => {
             <div>
             <label htmlFor="dorm">Номер общежития </label>
             <select value={dorm} onChange={onChangeDorm} className={'select'}>
+                <option value={'0'}>Не указан</option>
                 <option value={'10'}>№10</option>
                 <option value={'12'}>№12</option>
                 <option value={'13'}>№13</option>
@@ -107,6 +108,7 @@ const Form = () => {
             <div>
             <label htmlFor="floor">Этаж </label>
             <select value={floor} onChange={onChangeFloor} className={'select'}>
+                <option value={'0'}>Не указан</option>
                 <option value={'1'}>1</option>
                 <option value={'2'}>2</option>
                 <option value={'3'}>3</option>
@@ -126,6 +128,7 @@ const Form = () => {
             <div>
             <label htmlFor="room">Номер комнаты </label>
             <select value={room} onChange={onChangeRoom} className={'select'}>
+                <option value={'0'}>Не указан</option>               
                 <option value={'1'}>1</option>
                 <option value={'2'}>2</option>
                 <option value={'3'}>3</option>
