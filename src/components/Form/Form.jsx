@@ -1,15 +1,20 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './Form.css';
-import {useTelegram} from "../../hooks/useTelegram";
+import { useTelegram } from "../../hooks/useTelegram";
 
 const Form = () => {
     const [name, setName] = useState('');
-    const [phone, setPhone] = useState('71232281488');
+    const [phone, setPhone] = useState('');
     const [dorm, setDorm] = useState('0');
     const [floor, setFloor] = useState('0');
     const [room, setRoom] = useState('0');
 
-    const {tg} = useTelegram();
+    // New state variables to track whether each select element is selected or not
+    const [isDormSelected, setIsDormSelected] = useState(false);
+    const [isFloorSelected, setIsFloorSelected] = useState(false);
+    const [isRoomSelected, setIsRoomSelected] = useState(false);
+
+    const { tg } = useTelegram();
 
     const onSendData = useCallback(() => {
         const data = {
@@ -20,20 +25,20 @@ const Form = () => {
             room: room
         }
         tg.sendData(JSON.stringify(data));
-    }, [name, phone, dorm, floor, room])
+    }, [name, phone, dorm, floor, room]);
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
+        tg.onEvent('mainButtonClicked', onSendData);
         return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
-        }
-    }, [onSendData])
+            tg.offEvent('mainButtonClicked', onSendData);
+        };
+    }, [onSendData]);
 
     useEffect(() => {
         tg.MainButton.setParams({
             text: 'Отправить данные'
-        })
-    }, [])
+        });
+    }, []);
 
     useEffect(() => {
         if (!phone || typeof phone !== "number" || isNaN(phone) || phone.toString().length !== 11 || !name) {
@@ -42,18 +47,14 @@ const Form = () => {
             tg.MainButton.show();
         }
     }, [name, phone]);
-    
 
     const onChangeName = (e) => {
-        setName(e.target.value)
-    }
+        setName(e.target.value);
+    };
 
     const onChangePhone = (e) => {
         const inputPhone = e.target.value;
-        // Parse the input value to an integer
         const parsedPhone = parseInt(inputPhone, 10);
-    
-        // Check if the parsed value is NaN or not a number
         if (isNaN(parsedPhone)) {
             setPhone('');
         } else {
@@ -62,15 +63,29 @@ const Form = () => {
     };
 
     const onChangeDorm = (e) => {
-        setDorm(e.target.value)
-    }
+        setDorm(e.target.value);
+        setIsDormSelected(true);
+        setIsFloorSelected(false);
+        setIsRoomSelected(false);
+        setFloor('0');
+        setRoom('0');
+    };
 
     const onChangeFloor = (e) => {
-        setFloor(e.target.value)
-    }
+        if (isDormSelected) {
+            setFloor(e.target.value);
+            setIsFloorSelected(true);
+            setIsRoomSelected(false);
+            setRoom('0');
+        }
+    };
+
     const onChangeRoom = (e) => {
-        setRoom(e.target.value)
-    }
+        if (isFloorSelected) {
+            setRoom(e.target.value);
+            setIsRoomSelected(true);
+        }
+    };
 
     return (
         <div className={"form"}>
@@ -90,60 +105,60 @@ const Form = () => {
                 onChange={onChangePhone}
             />
             <div>
-            <label htmlFor="dorm">Номер общежития </label>
-            <select value={dorm} onChange={onChangeDorm} className={'select'}>
-                <option value={'0'}>Не указан</option>
-                <option value={'10'}>№10</option>
-                <option value={'12'}>№12</option>
-                <option value={'13'}>№13</option>
-                <option value={'14'}>№14</option>
-                <option value={'15'}>№15</option>
-                <option value={'16'}>№16</option>
-                <option value={'20'}>№20</option>
-                <option value={'21'}>№21</option>
-                <option value={'22'}>№22</option>
-                <option value={'23'}>№23</option>
-            </select>
+                <label htmlFor="dorm">Номер общежития </label>
+                <select value={dorm} onChange={onChangeDorm} className={'select'}>
+                    <option value={'0'}>Не указан</option>
+                    <option value={'10'}>№10</option>
+                    <option value={'12'}>№12</option>
+                    <option value={'13'}>№13</option>
+                    <option value={'14'}>№14</option>
+                    <option value={'15'}>№15</option>
+                    <option value={'16'}>№16</option>
+                    <option value={'20'}>№20</option>
+                    <option value={'21'}>№21</option>
+                    <option value={'22'}>№22</option>
+                    <option value={'23'}>№23</option>
+                </select>
             </div>
             <div>
-            <label htmlFor="floor">Этаж </label>
-            <select value={floor} onChange={onChangeFloor} className={'select'}>
-                <option value={'0'}>Не указан</option>
-                <option value={'1'}>1</option>
-                <option value={'2'}>2</option>
-                <option value={'3'}>3</option>
-                <option value={'4'}>4</option>
-                <option value={'5'}>5</option>
-                <option value={'6'}>6</option>
-                <option value={'7'}>7</option>
-                <option value={'8'}>8</option>
-                <option value={'9'}>9</option>
-                <option value={'10'}>10</option>
-                <option value={'11'}>11</option>
-                <option value={'12'}>12</option>
-                <option value={'13'}>13</option>
-                <option value={'14'}>14</option>
-            </select>
+                <label htmlFor="floor">Этаж </label>
+                <select value={floor} onChange={onChangeFloor} className={'select'}>
+                    <option value={'0'}>Не указан</option>
+                    <option value={'1'}>1</option>
+                    <option value={'2'}>2</option>
+                    <option value={'3'}>3</option>
+                    <option value={'4'}>4</option>
+                    <option value={'5'}>5</option>
+                    <option value={'6'}>6</option>
+                    <option value={'7'}>7</option>
+                    <option value={'8'}>8</option>
+                    <option value={'9'}>9</option>
+                    <option value={'10'}>10</option>
+                    <option value={'11'}>11</option>
+                    <option value={'12'}>12</option>
+                    <option value={'13'}>13</option>
+                    <option value={'14'}>14</option>
+                </select>
             </div>
             <div>
-            <label htmlFor="room">Номер комнаты </label>
-            <select value={room} onChange={onChangeRoom} className={'select'}>
-                <option value={'0'}>Не указан</option>               
-                <option value={'1'}>1</option>
-                <option value={'2'}>2</option>
-                <option value={'3'}>3</option>
-                <option value={'4'}>4</option>
-                <option value={'5'}>5</option>
-                <option value={'6'}>6</option>
-                <option value={'7'}>7</option>
-                <option value={'8'}>8</option>
-                <option value={'9'}>9</option>
-                <option value={'10'}>10</option>
-                <option value={'11'}>11</option>
-                <option value={'12'}>12</option>
-                <option value={'13'}>13</option>
-                <option value={'14'}>14</option>
-            </select>
+                <label htmlFor="room">Номер комнаты </label>
+                <select value={room} onChange={onChangeRoom} className={'select'}>
+                    <option value={'0'}>Не указан</option>               
+                    <option value={'1'}>1</option>
+                    <option value={'2'}>2</option>
+                    <option value={'3'}>3</option>
+                    <option value={'4'}>4</option>
+                    <option value={'5'}>5</option>
+                    <option value={'6'}>6</option>
+                    <option value={'7'}>7</option>
+                    <option value={'8'}>8</option>
+                    <option value={'9'}>9</option>
+                    <option value={'10'}>10</option>
+                    <option value={'11'}>11</option>
+                    <option value={'12'}>12</option>
+                    <option value={'13'}>13</option>
+                    <option value={'14'}>14</option>
+                </select>
             </div>
         </div>
     );
