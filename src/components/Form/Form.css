@@ -1,11 +1,11 @@
 /* Assuming you have defined your custom CSS variables for theme colors somewhere in your CSS or using CSS variables in a CSS-in-JS solution */
-:root {
-    --tg-theme-button-color: #3498db; /* Replace with your desired button background color */
-    --tg-theme-button-text-color: #ffffff; /* Replace with your desired button text color */
-    --tg-theme-input-border-color: #ccc; /* Replace with your desired input border color */
-    --tg-theme-input-focus-border-color: #3498db; /* Replace with your desired input focus border color */
-    --tg-theme-text-color: #333; /* Replace with your desired text color */
-  }
+/* :root {*/
+/*     --tg-theme-button-color: #3498db; /* Replace with your desired button background color */
+/*     --tg-theme-button-text-color: #ffffff; /* Replace with your desired button text color */
+ /*    --tg-theme-input-border-color: #ccc; /* Replace with your desired input border color */
+/*     --tg-theme-input-focus-border-color: #3498db; /* Replace with your desired input focus border color */
+/*     --tg-theme-text-color: #333; /* Replace with your desired text color */
+ /*  }*/
   
   .form {
     display: flex;
