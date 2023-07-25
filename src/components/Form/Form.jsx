@@ -48,9 +48,18 @@ const Form = () => {
         setName(e.target.value)
     }
 
-    const onChanhePhone = (e) => {
-        setPhone(e.target.value)
-    }
+    const onChangePhone = (e) => {
+        const inputPhone = e.target.value;
+        // Parse the input value to an integer
+        const parsedPhone = parseInt(inputPhone, 10);
+    
+        // Check if the parsed value is NaN or not a number
+        if (isNaN(parsedPhone)) {
+            setPhone('');
+        } else {
+            setPhone(parsedPhone);
+        }
+    };
 
     const onChangeDorm = (e) => {
         setDorm(e.target.value)
@@ -78,7 +87,7 @@ const Form = () => {
                 type="text"
                 placeholder={'Телефон'}
                 value={phone}
-                onChange={onChanhePhone}
+                onChange={onChangePhone}
             />
             <div>
             <label htmlFor="dorm">Номер общежития </label>
