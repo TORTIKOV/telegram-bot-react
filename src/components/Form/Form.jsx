@@ -20,7 +20,7 @@ const Form = () => {
             room: room
         }
         tg.sendData(JSON.stringify(data));
-    }, [name, phone, dorm])
+    }, [name, phone, dorm, floor, room])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -36,7 +36,7 @@ const Form = () => {
     }, [])
 
     useEffect(() => {
-        if(!phone || !name || length(phone) < 11) {
+        if(!phone || !name) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
