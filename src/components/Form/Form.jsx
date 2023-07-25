@@ -13,9 +13,11 @@ const Form = () => {
 
     const onSendData = useCallback(() => {
         const data = {
-            country: name,
-            street: phone,
-            subject: dorm
+            name: name,
+            phone: phone,
+            dorm: dorm,
+            floor: floor,
+            room: room
         }
         tg.sendData(JSON.stringify(data));
     }, [name, phone, dorm])
@@ -34,7 +36,7 @@ const Form = () => {
     }, [])
 
     useEffect(() => {
-        if(!phone || !name) {
+        if(!phone || !name || length(phone) < 11) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
