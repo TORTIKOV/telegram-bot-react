@@ -6,6 +6,7 @@
   
 .button {
     padding: 10px 15px;
+    background-color: var(--tg-theme-bg-color);
     background: var(--tg-theme-button-color); /* Use the button background color variable */
     color: var(--tg-theme-button-text-color); /* Use the button text color variable */
     border: none;
