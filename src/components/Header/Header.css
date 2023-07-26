@@ -1,9 +1,3 @@
-/* Assuming you have defined your custom CSS variables for theme colors somewhere in your CSS or using CSS variables in a CSS-in-JS solution*/ 
- /*:root {*/
- /*   --tg-theme-input-border-color: #ccc;  Replace with your desired input border color */
- /*   --tg-theme-input-focus-border-color: #3498db;  Replace with your desired input focus border color */
- /* }*/
-  
   .header {
     width: 100%;
     height: 50px;
