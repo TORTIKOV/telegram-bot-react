@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     padding: 0 20px;
-    background: var(--tg-theme-button-color); /* Use the same button background color for the header */
+    background: var(--tg-theme-bg-color); /* Use the same button background color for the header */
     color: var(--tg-theme-button-text-color); /* Use the same button text color for the header */
     font-family: "Helvetica", Arial, sans-serif; /* Replace with your desired font */
     font-size: 18px; /* Replace with your desired font size */
