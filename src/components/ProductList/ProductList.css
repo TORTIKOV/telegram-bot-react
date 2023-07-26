@@ -1,0 +1,62 @@
+/* ProductList.css */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+    background-color: var(--tg-theme-secondary-bg-color); /* secondary background color */
+}
+
+.product-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--tg-theme-bg-color); /* background color */
+    color: var(--tg-theme-text-color); /* text color */
+}
+
+.product-button img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid var(--tg-theme-hint-color); /* hint color */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product-button span {
+    font-size: 16px;
+}
+
+.product-button a {
+    background-color: var(--tg-theme-button-color); /* button color */
+    color: var(--tg-theme-button-text-color); /* button text color */
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.product-button a:hover {
+    opacity: 0.8;
+}
+
+.product-button a:active {
+    opacity: 0.6;
+}
+
+/* Global styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: var(--tg-theme-link-color); /* link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
