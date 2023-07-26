@@ -5,8 +5,7 @@ import Header from "./components/Header/Header"
 import {Route, Routes} from 'react-router-dom'
 import ProductList from './components/ProductList/ProductList';
 import Form from './components/Form/Form';
-import Ozon from './components/ProductDetails/ozon/ozon';
-
+import OrderPage from './components/OrderPage/OrderPage';
 
 
 const tg = window.Telegram.WebApp;
@@ -24,7 +23,7 @@ function App() {
         <Routes>
             <Route index element={<ProductList />}/>
             <Route path={'/form'} element={<Form />}/>
-            <Route path={'/:productId'} element={<Ozon />} />
+            <Route path="/order" element={<OrderPage />} />
         </Routes>
     </div>
   );
