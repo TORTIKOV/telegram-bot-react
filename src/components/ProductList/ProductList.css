@@ -57,6 +57,20 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+/* Media query for phone format */
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+    padding: 10px;
+  }
+
+  .product-button img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .product-button span {
+    font-size: 14px;
+  }
 }

@@ -8,9 +8,3 @@ body {
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
 }
-
-.app-container {
-  max-width: 100%; /* Adjust the value as needed */
-  margin: 0 auto; /* Center the app horizontally */
-  padding: 1%; /* Add padding to give some space around the app */
-}
