@@ -46,8 +46,8 @@ const ProductList = () => {
   
     setAddedItems(newItems);
 
-    if (newItems.length === 0 || !(newItems.length === orderFormData.length)) {
-      // If there are no items in the cart or all order forms are submitted, hide the button
+    if (newItems.length === orderFormData.length) {
+      // If the count of newItems is equal to the count of submitted order forms, hide the button
       tg.MainButton.hide();
     } else {
       tg.MainButton.show();
