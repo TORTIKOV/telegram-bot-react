@@ -1,6 +1,31 @@
 /* ProductItem.css */
 
-.add-btn {
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--tg-theme-secondary-bg-color);
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 200px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+  }
+  
+  .img img {
+    width: 100%; /* Make the image inside .img take 100% width */
+    max-height: 200px; /* Set the maximum height of the image */
+    object-fit: cover; /* Crop the image to fit the container */
+    border-radius: 8px; /* Rounded corners for the image */
+  }
+  
+  .title {
+    font-size: 18px; /* Set the font size for the title */
+    margin: 10px 0; /* Add margin above and below the title */
+    text-align: center; /* Center align the title */
+  }
+  
+  .add-btn {
     font-family: "Calibri", sans-serif; /* Set font to Calibri */
     background-color: var(--tg-theme-button-color);
     color: var(--tg-theme-button-text-color);
@@ -9,6 +34,7 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px; /* Add some space between the title and the button */
   }
   
   .add-btn:focus {
