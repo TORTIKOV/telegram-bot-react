@@ -1,78 +1,45 @@
 /* ProductList.css */
-.product-list {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
-    padding: 0;
-    background-color: var(--tg-theme-secondary-bg-color); /* secondary background color */
-}
 
-.product-button {
+.list {
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+    font-family: "Calibri", sans-serif; /* Set font to Calibri */
+    padding: 16px;
+  }
+  
+  .item {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    background-color: var(--tg-theme-bg-color); /* background color */
-    color: var(--tg-theme-text-color); /* text color */
-}
-
-.product-button img {
-    width: 200px;
-    height: 200px;
-    border: 1px solid var(--tg-theme-hint-color); /* hint color */
-    border-radius: 0;
-    margin-bottom: 10px;
-}
-
-.product-button span {
-    font-size: 16px;
-}
-
-.product-button button {
-    background-color: var(--tg-theme-button-color); /* button color */
-    color: var(--tg-theme-button-text-color); /* button text color */
-    padding: 8px 16px;
+    font-family: "Calibri", sans-serif; /* Set font to Calibri */
+    padding: 8px;
+    border-bottom: 1px solid var(--tg-theme-hint-color);
+  }
+  
+  .item:last-child {
+    border-bottom: none;
+  }
+  
+  .item button {
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
     border: none;
-    border-radius: 5px;
+    padding: 8px 16px;
     cursor: pointer;
-    margin-top: 10px;
-}
-
-.product-button button:hover {
-    opacity: 0.8;
-}
-
-.product-button button:active {
-    opacity: 0.6;
-}
-
-/* Global styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    width: 100%;
-}
-
-a {
-    color: var(--tg-theme-link-color); /* link color */
-    text-decoration: none;
-}
-
-/* Media query for phone format */
-@media (max-width: 480px) {
-    .product-list {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        grid-gap: 0;
-        padding: 0;
-    }
-
-    .product-button img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .product-button span {
-        font-size: 14px;
-    }
-}
+    font-family: "Calibri", sans-serif; /* Set font to Calibri */
+  }
+  
+  .item button:hover {
+    background-color: var(--tg-theme-bg-color); /* Darker shade for button hover effect */
+  }
+  
+  /* Apply secondary background color to the main button */
+  .MainButton {
+    background-color: var(--tg-theme-secondary-bg-color);
+  }
+  
+  /* Apply link color to anchor tags */
+  a {
+    color: var(--tg-theme-link-color);
+  }
+  
