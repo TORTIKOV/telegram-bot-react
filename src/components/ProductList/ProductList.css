@@ -111,12 +111,3 @@ body {
     background-color: var(--tg-theme-secondary-bg-color);
   }
   
-  /* Additional mobile styles */
-  @media screen and (max-width: 600px) {
-    .item,
-    .product {
-      flex: 0 0 calc(100% - 20px); /* Show one product/order form in a row on mobile */
-      max-width: calc(100% - 20px); /* Show one product/order form in a row on mobile */
-    }
-  }
-  
