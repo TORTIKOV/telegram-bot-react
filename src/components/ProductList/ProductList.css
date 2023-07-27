@@ -1,19 +1,69 @@
-/* ProductItem.css */
+/* ProductList.css */
 
-.list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+body {
+    font-family: "Calibri", sans-serif; /* Set font to Calibri */
     background-color: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
-    font-family: "Calibri", sans-serif; /* Set font to Calibri */
+  }
+  
+  .list {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    gap: 20px; /* Add some space between items */
+    justify-content: center; /* Center align items horizontally */
     padding: 16px;
   }
   
+  label {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  
+  select {
+    font-family: "Calibri", sans-serif; /* Set font to Calibri */
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .select-container {
+    margin-bottom: 16px;
+  }
+  
+  .item {
+    flex: 0 0 calc(50% - 20px); /* Show two products in a row */
+    max-width: calc(50% - 20px); /* Show two products in a row */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid var(--tg-theme-hint-color);
+  }
+  
+  .item:last-child {
+    border-bottom: none;
+  }
+  
+  .item button {
+    font-family: "Calibri", sans-serif; /* Set font to Calibri */
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .item button:hover {
+    background-color: lighten(var(--tg-theme-button-color), 10%);
+  }
+  
   .product {
-    flex: 0 0 calc(50% - 20px);
-    max-width: calc(50% - 20px);
+    flex: 0 0 calc(50% - 20px); /* Show two products in a row */
+    max-width: calc(50% - 20px); /* Show two products in a row */
     display: flex;
     flex-direction: column;
     align-items: center;
