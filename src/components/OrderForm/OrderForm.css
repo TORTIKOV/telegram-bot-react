@@ -1,47 +1,36 @@
 /* OrderForm.css */
 
-/* Set font to Calibri */
 .order-form {
-    font-family: "Calibri", sans-serif;
-  }
-  
-  /* Apply background color */
-  .order-form {
+    font-family: "Calibri", sans-serif; /* Set font to Calibri */
     background-color: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
     padding: 16px;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
-  /* Styling for the h2 element */
   .order-form h2 {
-    color: var(--tg-theme-link-color);
     margin-bottom: 16px;
   }
   
-  /* Styling for the strong element */
-  .order-form strong {
-    color: var(--tg-theme-hint-color);
-  }
-  
-  /* Styling for the ul element */
   .order-form ul {
-    list-style-type: none;
+    padding-left: 24px;
     margin: 0;
-    padding: 0;
   }
   
-  /* Styling for the li element */
   .order-form li {
-    margin-bottom: 8px;
+    list-style-type: none;
   }
   
-  /* Styling for the label element */
+  .order-form div {
+    margin-bottom: 16px;
+  }
+  
   .order-form label {
     display: block;
     margin-bottom: 8px;
   }
   
-  /* Styling for the input elements */
   .order-form input[type="datetime-local"],
   .order-form input[type="text"],
   .order-form textarea {
@@ -49,25 +38,24 @@
     padding: 8px;
     border: 1px solid var(--tg-theme-hint-color);
     border-radius: 4px;
+  }
+  
+  /* Apply secondary background color to the button */
+  .order-form button {
     background-color: var(--tg-theme-secondary-bg-color);
-    color: var(--tg-theme-text-color);
-    margin-bottom: 16px;
+    color: var(--tg-theme-button-text-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
-  /* Styling for the textarea element */
-  .order-form textarea {
-    resize: none;
+  .order-form button:hover {
+    background-color: lighten(var(--tg-theme-secondary-bg-color), 10%);
   }
   
-  /* Set the focus and active states for the input elements */
-  .order-form input:focus,
-  .order-form textarea:focus {
+  .order-form button:focus {
     outline: none;
-    border-color: var(--tg-theme-link-color);
-  }
-  
-  .order-form input:active,
-  .order-form textarea:active {
-    border-color: var(--tg-theme-button-color);
   }
   
