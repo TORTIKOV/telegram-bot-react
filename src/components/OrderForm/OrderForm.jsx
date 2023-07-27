@@ -1,4 +1,5 @@
 import React from 'react';
+import './OrderForm.css';
 
 const OrderForm = ({ products }) => {
   return (
@@ -24,7 +25,7 @@ const OrderForm = ({ products }) => {
       </div>
       <div>
         <label htmlFor="orderComment">Order Comment:</label>
-        <textarea id="orderComment" rows="4" cols="50" />
+        <input type="text" id="orderComment" />
       </div>
     </div>
   );
