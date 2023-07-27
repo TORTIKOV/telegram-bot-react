@@ -1,34 +1,73 @@
-/* OrderPage.css */
-.order-page {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: var(--tg-theme-secondary-bg-color); /* secondary background color */
-    color: var(--tg-theme-text-color); /* text color */
-    font-family: Arial, sans-serif;
-}
+/* OrderForm.css */
 
-.order-page h1 {
-    color: var(--tg-theme-hint-color); /* hint color */
-}
-
-.order-page p {
-    margin-bottom: 10px;
-}
-
-.order-page button {
-    background-color: var(--tg-theme-button-color); /* button color */
-    color: var(--tg-theme-button-text-color); /* button text color */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.order-page button:hover {
-    opacity: 0.8;
-}
-
-.order-page button:active {
-    opacity: 0.6;
-}
+/* Set font to Calibri */
+.order-form {
+    font-family: "Calibri", sans-serif;
+  }
+  
+  /* Apply background color */
+  .order-form {
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+    padding: 16px;
+  }
+  
+  /* Styling for the h2 element */
+  .order-form h2 {
+    color: var(--tg-theme-link-color);
+    margin-bottom: 16px;
+  }
+  
+  /* Styling for the strong element */
+  .order-form strong {
+    color: var(--tg-theme-hint-color);
+  }
+  
+  /* Styling for the ul element */
+  .order-form ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Styling for the li element */
+  .order-form li {
+    margin-bottom: 8px;
+  }
+  
+  /* Styling for the label element */
+  .order-form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  /* Styling for the input elements */
+  .order-form input[type="datetime-local"],
+  .order-form input[type="text"],
+  .order-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--tg-theme-hint-color);
+    border-radius: 4px;
+    background-color: var(--tg-theme-secondary-bg-color);
+    color: var(--tg-theme-text-color);
+    margin-bottom: 16px;
+  }
+  
+  /* Styling for the textarea element */
+  .order-form textarea {
+    resize: none;
+  }
+  
+  /* Set the focus and active states for the input elements */
+  .order-form input:focus,
+  .order-form textarea:focus {
+    outline: none;
+    border-color: var(--tg-theme-link-color);
+  }
+  
+  .order-form input:active,
+  .order-form textarea:active {
+    border-color: var(--tg-theme-button-color);
+  }
+  

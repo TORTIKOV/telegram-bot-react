@@ -60,6 +60,15 @@ const ProductList = () => {
 
   return (
     <div className={'list'}>
+      {products.map((item) => (
+        <ProductItem
+          key={item.id}
+          product={item}
+          onAdd={onAdd}
+          className={'item'}
+        />
+      ))}
+
       <div className={'split-container'}>
         <label htmlFor="split">Split:</label>
         <select id="split" value={split} onChange={handleSplitChange}>
@@ -69,28 +78,16 @@ const ProductList = () => {
       </div>
 
       {split === 'no' && (
-        <>
-          {products.map((item) => (
-            <ProductItem
-              key={item.id}
-              product={item}
-              onAdd={onAdd}
-              className={'item'}
-            />
-          ))}
-          <OrderForm products={addedItems} />
-        </>
+        <OrderForm products={addedItems} />
       )}
 
       {split === 'yes' && (
-        <>
-          {addedItems.map((item, index) => (
-            <div key={index}>
-              <h3>Order Form {index + 1}</h3>
-              <OrderForm products={[item]} />
-            </div>
-          ))}
-        </>
+        addedItems.map((item, index) => (
+          <div key={index}>
+            <h3>Order Form {index + 1}</h3>
+            <OrderForm products={[item]} />
+          </div>
+        ))
       )}
     </div>
   );

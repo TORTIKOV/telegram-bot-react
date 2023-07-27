@@ -12,21 +12,15 @@ const OrderForm = ({ products }) => {
           ))}
         </ul>
       </div>
-      <div>
-        <label htmlFor="notEarlierThan">Not Earlier Than:</label>
-        <input type="date" id="notEarlierThan" />
-      </div>
+      {/* No Earlier Than field is removed */}
       <div>
         <label htmlFor="noLaterThan">No Later Than:</label>
-        <input type="date" id="noLaterThan" />
+        <input type="datetime-local" id="noLaterThan" />
       </div>
+      {/* Payment Method field replaced with a text input */}
       <div>
         <label htmlFor="paymentMethod">Payment Method:</label>
-        <select id="paymentMethod">
-          <option value="cash">Cash</option>
-          <option value="creditCard">Credit Card</option>
-          <option value="bankTransfer">Bank Transfer</option>
-        </select>
+        <input type="text" id="paymentMethod" />
       </div>
       <div>
         <label htmlFor="orderComment">Order Comment:</label>
