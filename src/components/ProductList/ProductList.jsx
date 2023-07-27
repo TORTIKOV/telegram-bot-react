@@ -84,7 +84,6 @@ const ProductList = () => {
       {split === 'yes' && (
         addedItems.map((item, index) => (
           <div key={index}>
-            <h3>Order Form {index + 1}</h3>
             <OrderForm products={[item]} />
           </div>
         ))
