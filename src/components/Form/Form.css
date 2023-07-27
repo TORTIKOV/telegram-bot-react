@@ -1,52 +1,52 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 20px;
-    background-color: var(--tg-theme-bg-color); /* Use the background color variable */
-  }
-  
-  h3 {
-    font-family: "Calibri", Arial, sans-serif; /* Use Calibri as the font for the heading */
-    font-size: 24px; /* Replace with your desired font size for the heading */
-    color: var(--tg-theme-text-color); /* Use the main text color variable */
-    margin-bottom: 20px; /* Add some bottom margin for spacing */
-  }
-  
-  .input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
-    border: 1px solid var(--tg-theme-hint-color); /* Use the hint text color variable for input border */
-    border-radius: 5px;
-    font-family: "Calibri", Arial, sans-serif; /* Use Calibri as the font for input fields */
-    font-size: 16px; /* Replace with your desired font size for input fields */
-    color: var(--tg-theme-text-color); /* Use the main text color variable for inputs */
-    background-color: var(--tg-theme-secondary-bg-color); /* Use the secondary background color variable for inputs */
-  }
-  
-  /* Add focus styles for input */
-  .input:focus {
-    outline: none;
-    border-color: var(--tg-theme-link-color); /* Use the link color variable for the input border on focus */
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Replace with your desired focus box shadow */
-  }
-  
-  .select {
-    padding: 10px;
-    margin-top: 15px;
-    font-family: "Calibri", Arial, sans-serif; /* Use Calibri as the font for select elements */
-    font-size: 16px; /* Replace with your desired font size for select elements */
-    border: 1px solid var(--tg-theme-hint-color); /* Use the hint text color variable for select border */
-    border-radius: 5px;
-    color: var(--tg-theme-text-color); /* Use the main text color variable for selects */
-    background-color: var(--tg-theme-secondary-bg-color); /* Use the secondary background color variable for selects */
-  }
-  
-  /* Style for the labels of select elements */
-  label {
-    font-family: "Calibri", Arial, sans-serif; /* Use Calibri as the font for labels */
-    font-size: 16px; /* Replace with your desired font size for labels */
-    color: var(--tg-theme-text-color); /* Use the main text color variable for labels */
-    margin-bottom: 5px; /* Add some bottom margin for spacing */
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  background-color: var(--tg-theme-bg-color); /* Use the background color variable */
+}
+
+h3 {
+  font-family: "Calibri", Arial, sans-serif; /* Use Calibri as the font for the heading */
+  font-size: 24px; /* Replace with your desired font size for the heading */
+  color: var(--tg-theme-text-color); /* Use the main text color variable */
+  margin-bottom: 20px; /* Add some bottom margin for spacing */
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  border: 1px solid var(--tg-theme-hint-color); /* Use the hint text color variable for input border */
+  border-radius: 5px;
+  font-family: "Calibri", Arial, sans-serif; /* Use Calibri as the font for input fields */
+  font-size: 16px; /* Replace with your desired font size for input fields */
+  color: var(--tg-theme-text-color); /* Use the main text color variable for inputs */
+  background-color: var(--tg-theme-secondary-bg-color); /* Use the secondary background color variable for inputs */
+}
+
+/* Add focus styles for input */
+.input:focus {
+  outline: none;
+  border-color: var(--tg-theme-link-color); /* Use the link color variable for the input border on focus */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Replace with your desired focus box shadow */
+}
+
+.select {
+  padding: 10px;
+  margin-top: 15px;
+  font-family: "Calibri", Arial, sans-serif; /* Use Calibri as the font for select elements */
+  font-size: 16px; /* Replace with your desired font size for select elements */
+  border: 1px solid var(--tg-theme-hint-color); /* Use the hint text color variable for select border */
+  border-radius: 5px;
+  color: var(--tg-theme-text-color); /* Use the main text color variable for selects */
+  background-color: var(--tg-theme-secondary-bg-color); /* Use the secondary background color variable for selects */
+}
+
+/* Style for the labels of select elements */
+label {
+  font-family: "Calibri", Arial, sans-serif; /* Use Calibri as the font for labels */
+  font-size: 16px; /* Replace with your desired font size for labels */
+  color: var(--tg-theme-text-color); /* Use the main text color variable for labels */
+  margin-bottom: 5px; /* Add some bottom margin for spacing */
+}

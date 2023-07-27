@@ -1,36 +1,76 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
 import './ProductList.css';
-import image1 from '../../images/image11.jpg';
+import ProductItem from "../ProductItem/ProductItem";
+import {useTelegram} from "../../hooks/useTelegram";
+import {useCallback, useEffect} from "react";
+
+const products = [
+    {id: '1', title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
+    {id: '2', title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
+    {id: '3', title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
+    {id: '4', title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
+    {id: '5', title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
+    {id: '6', title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
+    {id: '7', title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
+    {id: '8', title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
+]
+
+const getTotalPrice = (items = []) => {
+    return items.reduce((acc, item) => {
+        return acc += item.price
+    }, 0)
+}
 
 const ProductList = () => {
-    const [order, setOrder] = useState([]);
+    const [addedItems, setAddedItems] = useState([]);
 
-    // Sample data for picture buttons
-    const products = [
-        { id: 1, name: 'Ozon', image: image1 },  // Use the imported image1
-        { id: 2, name: 'WB', image: image1 },    // Use the imported image1
-        { id: 3, name: 'Lenta', image: image1 }, // Use the imported image1
-        { id: 4, name: 'Andreyka', image: image1 } // Use the imported image1
-        // Add more products as needed
-    ];
+    const {tg} = useTelegram();
 
-    const handleAddToOrder = (product) => {
-        setOrder([...order, product]);
-    };
+    const onSendData = useCallback(() => {
+        const data = {
+            products: addedItems,
+        }
+        tg.sendData(JSON.stringify(data));
+    }, [addedItems]);
+
+    useEffect(() => {
+        tg.onEvent('mainButtonClicked', onSendData)
+        return () => {
+            tg.offEvent('mainButtonClicked', onSendData)
+        }
+    }, [onSendData])
+
+    const onAdd = (product) => {
+        const alreadyAdded = addedItems.find(item => item.id === product.id);
+        let newItems = [];
+
+        if(alreadyAdded) {
+            newItems = addedItems.filter(item => item.id !== product.id);
+        } else {
+            newItems = [...addedItems, product];
+        }
+
+        setAddedItems(newItems)
+
+        if(newItems.length === 0) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.show();
+            tg.MainButton.setParams({
+                text: `Добавить в заказ ${getTotalPrice(newItems)}`
+            })
+        }
+    }
 
     return (
-        <div className="product-list">
-            {products.map((product) => (
-                <div key={product.id} className="product-button">
-                    <img src={product.image} alt={product.name} />
-                    <span>{product.name}</span>
-                    <button onClick={() => handleAddToOrder(product)}>Add to Order</button>
-                </div>
+        <div className={'list'}>
+            {products.map(item => (
+                <ProductItem
+                    product={item}
+                    onAdd={onAdd}
+                    className={'item'}
+                />
             ))}
-            <Link to="/order">
-                <button>Make an Order</button>
-            </Link>
         </div>
     );
 };
