@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from "../Button/Button";
 import './ProductItem.css';
-
 // Import your product images
 import ozonImage from '../../images/image11.jpg';
 import wbImage from '../../images/image11.jpg';

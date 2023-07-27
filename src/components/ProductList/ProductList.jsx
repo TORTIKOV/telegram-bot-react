@@ -1,9 +1,9 @@
-// ProductList.js
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ProductList.css';
 import ProductItem from '../ProductItem/ProductItem';
 import OrderForm from '../OrderForm/OrderForm';
 import { useTelegram } from '../../hooks/useTelegram';
+import { useCallback, useEffect } from 'react';
 
 const products = [
   { id: 1, title: 'Ozon' },
@@ -15,12 +15,17 @@ const products = [
 const ProductList = () => {
   const [addedItems, setAddedItems] = useState([]);
   const [split, setSplit] = useState('no'); // Default value: "no"
+  const [orderFormData, setOrderFormData] = useState([]); // New state to store order form data
 
   const { tg } = useTelegram();
 
-  const onSendData = useCallback((data) => {
+  const onSendData = useCallback(() => {
+    const data = {
+      products: addedItems,
+      formData: orderFormData,
+    };
     tg.sendData(JSON.stringify(data));
-  }, [tg]);
+  }, [addedItems], [orderFormData]);
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
@@ -38,10 +43,11 @@ const ProductList = () => {
     } else {
       newItems = [...addedItems, product];
     }
-
+  
     setAddedItems(newItems);
 
-    if (newItems.length === 0) {
+    if (newItems.length === 0 || !(newItems.length === orderFormData.length)) {
+      // If there are no items in the cart or all order forms are submitted, hide the button
       tg.MainButton.hide();
     } else {
       tg.MainButton.show();
@@ -55,9 +61,9 @@ const ProductList = () => {
     setSplit(event.target.value);
   };
 
-  const handleOrderSubmit = (orderData) => {
-    // You can process the orderData here or directly send it to the sendData function
-    onSendData(orderData);
+  // Handler to collect order form data
+  const handleOrderFormData = (data) => {
+    setOrderFormData([...orderFormData, data]);
   };
 
   return (
@@ -80,13 +86,13 @@ const ProductList = () => {
       </div>
 
       {split === 'no' && (
-        <OrderForm products={addedItems} onOrderSubmit={handleOrderSubmit} />
+        <OrderForm products={addedItems} onFormSubmit={handleOrderFormData} />
       )}
 
       {split === 'yes' && (
         addedItems.map((item, index) => (
           <div key={index}>
-            <OrderForm products={[item]} onOrderSubmit={handleOrderSubmit} />
+            <OrderForm products={[item]} onFormSubmit={handleOrderFormData} />
           </div>
         ))
       )}
@@ -95,3 +101,4 @@ const ProductList = () => {
 };
 
 export default ProductList;
+
