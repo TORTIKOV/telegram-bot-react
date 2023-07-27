@@ -1,4 +1,3 @@
-// OrderForm.js
 import React, { useState } from 'react';
 import './OrderForm.css';
 
@@ -56,21 +55,125 @@ const OrderForm = ({ products, onOrderSubmit }) => {
     <div className="order-form">
       <h2>Заказ</h2>
       <form onSubmit={handleSubmit}>
-        {/* ... existing form fields ... */}
-        {/* New form fields */}
+        <div>
+          <strong>Откуда доставлять:</strong>
+          <ul>
+            {products.map((product) => (
+              <li key={product.id}>{product.title}</li>
+            ))}
+          </ul>
+        </div>
+
         <div>
           <label htmlFor="noLaterThan">Крайний срок:</label>
-          <input type="datetime-local" id="noLaterThan" value={noLaterThan} onChange={(e) => setNoLaterThan(e.target.value)} />
+          <input
+            type="datetime-local"
+            id="noLaterThan"
+            value={noLaterThan}
+            onChange={(e) => setNoLaterThan(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="paymentMethod">Метод оплаты:</label>
-          <input type="text" id="paymentMethod" value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)} />
+          <input
+            type="text"
+            id="paymentMethod"
+            value={paymentMethod}
+            onChange={(e) => setPaymentMethod(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="orderComment">Комментарий к заказу:</label>
-          <input type="text" id="orderComment" value={orderComment} onChange={(e) => setOrderComment(e.target.value)} />
+          <input
+            type="text"
+            id="orderComment"
+            value={orderComment}
+            onChange={(e) => setOrderComment(e.target.value)}
+          />
         </div>
-        <button type="submit">Сделать заказ</button>
+
+        <div>
+          <label htmlFor="deliveryOption">Выберите вариант доставки:</label>
+          <select
+            id="deliveryOption"
+            value={deliveryOption}
+            onChange={handleDeliveryOptionChange}
+          >
+            <option value="KPP">KPP</option>
+            <option value="CP">CP</option>
+            <option value="DORM">DORM</option>
+          </select>
+        </div>
+
+        {deliveryOption === 'DORM' && (
+          <div>
+            <label htmlFor="dormOption">Номер общежития:</label>
+            <select
+              id="dormOption"
+              value={dormOption}
+              onChange={handleDormOptionChange}
+            >
+              <option value={'0'}>Не указан</option>
+              <option value={'10'}>№10</option>
+              <option value={'12'}>№12</option>
+              <option value={'13'}>№13</option>
+              <option value={'14'}>№14</option>
+              <option value={'15'}>№15</option>
+              <option value={'16'}>№16</option>
+              <option value={'20'}>№20</option>
+              <option value={'21'}>№21</option>
+              <option value={'22'}>№22</option>
+              <option value={'23'}>№23</option>
+            </select>
+            <label htmlFor="floorOption">Этаж:</label>
+            <select
+              id="floorOption"
+              value={floorOption}
+              onChange={handleFloorOptionChange}
+            >
+              <option value={'0'}>Не указан</option>
+              <option value={'1'}>1</option>
+              <option value={'2'}>2</option>
+              <option value={'3'}>3</option>
+              <option value={'4'}>4</option>
+              <option value={'5'}>5</option>
+              <option value={'6'}>6</option>
+              <option value={'7'}>7</option>
+              <option value={'8'}>8</option>
+              <option value={'9'}>9</option>
+              <option value={'10'}>10</option>
+              <option value={'11'}>11</option>
+              <option value={'12'}>12</option>
+              <option value={'13'}>13</option>
+              <option value={'14'}>14</option>
+            </select>
+
+            <label htmlFor="roomOption">Блок:</label>
+            <select
+              id="roomOption"
+              value={roomOption}
+              onChange={handleRoomOptionChange}
+            >
+              <option value={'0'}>Не указан</option>
+              <option value={'1'}>1</option>
+              <option value={'2'}>2</option>
+              <option value={'3'}>3</option>
+              <option value={'4'}>4</option>
+              <option value={'5'}>5</option>
+              <option value={'6'}>6</option>
+              <option value={'7'}>7</option>
+              <option value={'8'}>8</option>
+              <option value={'9'}>9</option>
+              <option value={'10'}>10</option>
+              <option value={'11'}>11</option>
+              <option value={'12'}>12</option>
+              <option value={'13'}>13</option>
+              <option value={'14'}>14</option>
+            </select>
+          </div>
+        )}
+
+        <button type="submit">Подтвердить</button>
       </form>
     </div>
   );
