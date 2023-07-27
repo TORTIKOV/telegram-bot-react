@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+// ProductList.js
+import React, { useState, useCallback, useEffect } from 'react';
 import './ProductList.css';
 import ProductItem from '../ProductItem/ProductItem';
 import OrderForm from '../OrderForm/OrderForm';
 import { useTelegram } from '../../hooks/useTelegram';
-import { useCallback, useEffect } from 'react';
 
 const products = [
   { id: 1, title: 'Ozon' },
@@ -18,12 +18,9 @@ const ProductList = () => {
 
   const { tg } = useTelegram();
 
-  const onSendData = useCallback(() => {
-    const data = {
-      products: addedItems,
-    };
+  const onSendData = useCallback((data) => {
     tg.sendData(JSON.stringify(data));
-  }, [addedItems]);
+  }, [tg]);
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
@@ -58,6 +55,11 @@ const ProductList = () => {
     setSplit(event.target.value);
   };
 
+  const handleOrderSubmit = (orderData) => {
+    // You can process the orderData here or directly send it to the sendData function
+    onSendData(orderData);
+  };
+
   return (
     <div className={'list'}>
       {products.map((item) => (
@@ -78,13 +80,13 @@ const ProductList = () => {
       </div>
 
       {split === 'no' && (
-        <OrderForm products={addedItems} />
+        <OrderForm products={addedItems} onOrderSubmit={handleOrderSubmit} />
       )}
 
       {split === 'yes' && (
         addedItems.map((item, index) => (
           <div key={index}>
-            <OrderForm products={[item]} />
+            <OrderForm products={[item]} onOrderSubmit={handleOrderSubmit} />
           </div>
         ))
       )}
