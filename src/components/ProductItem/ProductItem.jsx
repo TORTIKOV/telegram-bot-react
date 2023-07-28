@@ -1,6 +1,4 @@
-// ProductItem.js
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import './ProductItem.css';
 // Import your product images
@@ -11,6 +9,11 @@ import andreikaImage from '../../images/image11.jpg';
 
 const ProductItem = ({ product, className, onAdd, isSelected, isClickable }) => {
   const [clickCount, setClickCount] = useState(0);
+
+  useEffect(() => {
+    // Whenever the `isClickable` prop changes, reset the click count to 0
+    setClickCount(0);
+  }, [isClickable]);
 
   const onAddHandler = () => {
     if (isClickable) {
