@@ -49,13 +49,13 @@ const ProductList = () => {
       setSelectedProductId(product.id);
       setAddedItems([product]);
     }
-    if (!selectedProductId || !isFormFilled()) {
-      tg.MainButton.hide();
-    } else {
+    if (selectedProductId !== null && isFormFilled()) {
       tg.MainButton.show();
       tg.MainButton.setParams({
         text: `Сделать заказ`,
       });
+    } else {
+      tg.MainButton.hide();
     }
   };
 
@@ -90,7 +90,7 @@ const ProductList = () => {
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
-    setOrderFormData({
+      setOrderFormData({
       ...orderFormData,
       [id]: value,
     });
