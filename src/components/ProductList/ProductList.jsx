@@ -49,7 +49,7 @@ const ProductList = () => {
       setSelectedProductId(product.id);
       setAddedItems([product]);
     }
-    if (!isFormFilled()) {
+    if (!isFormFilled() || !selectedProductId) {
       tg.MainButton.hide();
     } else {
       tg.MainButton.show();
@@ -58,6 +58,7 @@ const ProductList = () => {
       });
     }
   };
+
 
   const isFormFilled = () => {
     const {
@@ -69,7 +70,7 @@ const ProductList = () => {
 
     if (deliveryOption === 'DORM') {
       return (
-        !selectedProductId && 
+        selectedProductId &&
         noLaterThan.trim() !== '' &&
         paymentMethod.trim() !== '' &&
         orderComment.trim() !== '' &&
@@ -79,12 +80,14 @@ const ProductList = () => {
       );
     }
 
+
     return (
-      !selectedProductId &&
+      selectedProductId &&
       noLaterThan.trim() !== '' &&
       paymentMethod.trim() !== '' &&
       orderComment.trim() !== ''
     );
+
   };
 
   const handleInputChange = (event) => {
@@ -99,13 +102,13 @@ const ProductList = () => {
     <div className={'list'}>
       {products.map((item) => (
         <ProductItem
-          key={item.id}
-          product={item}
-          onAdd={onAdd}
-          isSelected={selectedProductId === item.id}
-          isClickable={!selectedProductId || selectedProductId === item.id}
-          className={'item'}
-        />
+        key={item.id}
+        product={item}
+        onAdd={onAdd}
+        isSelected={selectedProductId === item.id}
+        isClickable={!selectedProductId || selectedProductId === item.id}
+        className={'item'}
+      />
       ))}
       {selectedProductId && (
         <div className="order-form">
