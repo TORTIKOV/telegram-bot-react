@@ -105,93 +105,95 @@ const ProductList = () => {
           className={'item'}
         />
       ))}
-
-      <div className="order-form">
-        <h2>Заказ</h2>
-        <div>
-          <strong>Откуда доставлять:</strong>
-          <ul>
-            {addedItems.map((product) => (
-              <li key={product.id}>{product.title}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <label htmlFor="noLaterThan">Крайний срок:</label>
-          <input
-            className={'input'}
-            type="datetime-local"
-            id="noLaterThan"
-            value={orderFormData.noLaterThan}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="paymentMethod">Метод оплаты:</label>
-          <input
-            type="text"
-            id="paymentMethod"
-            value={orderFormData.paymentMethod}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="orderComment">Комментарий к заказу:</label>
-          <input
-            type="text"
-            id="orderComment"
-            value={orderFormData.orderComment}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        {/* New selection field for delivery options */}
-        <div>
-          <label htmlFor="deliveryOption">Выберите вариант доставки:</label>
-          <select
-            id="deliveryOption"
-            value={orderFormData.deliveryOption}
-            onChange={handleInputChange}
-          >
-            <option value="KPP">KPP</option>
-            <option value="CP">CP</option>
-            <option value="DORM">DORM</option>
-          </select>
-        </div>
-
-        {/* Conditional rendering based on the selected delivery option */}
-        {orderFormData.deliveryOption === 'DORM' ? (
+      {selectedProductId && (
+        <div className="order-form">
+          <h2>Заказ</h2>
           <div>
-            <label htmlFor="dormOption">Номер общежития:</label>
-            <select
-              id="dormOption"
-              value={orderFormData.dormOption}
+            <strong>Откуда доставлять:</strong>
+            <ul>
+              {addedItems.map((product) => (
+                <li key={product.id}>{product.title}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <label htmlFor="noLaterThan">Крайний срок:</label>
+            <input
+              className={'input'}
+              type="datetime-local"
+              id="noLaterThan"
+              value={orderFormData.noLaterThan}
               onChange={handleInputChange}
-            >
-              {/* ... options for dorm ... */}
-            </select>
-            <label htmlFor="floorOption">Этаж:</label>
-            <select
-              id="floorOption"
-              value={orderFormData.floorOption}
+            />
+          </div>
+          <div>
+            <label htmlFor="paymentMethod">Метод оплаты:</label>
+            <input
+              type="text"
+              id="paymentMethod"
+              value={orderFormData.paymentMethod}
               onChange={handleInputChange}
-            >
-              {/* ... options for floor ... */}
-            </select>
+            />
+          </div>
+          <div>
+            <label htmlFor="orderComment">Комментарий к заказу:</label>
+            <input
+              type="text"
+              id="orderComment"
+              value={orderFormData.orderComment}
+              onChange={handleInputChange}
+            />
+          </div>
 
-            <label htmlFor="roomOption">Блок:</label>
+          {/* New selection field for delivery options */}
+          <div>
+            <label htmlFor="deliveryOption">Выберите вариант доставки:</label>
             <select
-              id="roomOption"
-              value={orderFormData.roomOption}
+              id="deliveryOption"
+              value={orderFormData.deliveryOption}
               onChange={handleInputChange}
             >
-              {/* ... options for room ... */}
+              <option value="KPP">KPP</option>
+              <option value="CP">CP</option>
+              <option value="DORM">DORM</option>
             </select>
           </div>
-        ) : null}
 
-      </div>
-    </div>
+          {/* Conditional rendering based on the selected delivery option */}
+          {orderFormData.deliveryOption === 'DORM' ? (
+            <div>
+              <label htmlFor="dormOption">Номер общежития:</label>
+              <select
+                id="dormOption"
+                value={orderFormData.dormOption}
+                onChange={handleInputChange}
+              >
+                {/* ... options for dorm ... */}
+              </select>
+              <label htmlFor="floorOption">Этаж:</label>
+              <select
+                id="floorOption"
+                value={orderFormData.floorOption}
+                onChange={handleInputChange}
+              >
+                {/* ... options for floor ... */}
+              </select>
+
+              <label htmlFor="roomOption">Блок:</label>
+              <select
+                id="roomOption"
+                value={orderFormData.roomOption}
+                onChange={handleInputChange}
+              >
+                {/* ... options for room ... */}
+              </select>
+            </div>
+          ) : null}
+
+        </div>
+      )};
+     </div>
+
   );
 };
 
