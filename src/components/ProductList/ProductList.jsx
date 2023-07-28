@@ -24,22 +24,33 @@ const ProductList = () => {
   });
   const { tg } = useTelegram();
 
+  useEffect(() => {
+    // Show or hide the MainButton based on selection and form data
+    if (selectedProductId && isFormFilled()) {
+      tg.MainButton.show();
+      tg.MainButton.setParams({
+        text: `Сделать заказ`,
+      });
+    } else {
+      tg.MainButton.hide();
+    }
+  }, [selectedProductId, orderFormData, tg]);
+
   const onSendData = useCallback(() => {
     const data = {
       products: addedItems,
       formData: orderFormData,
     };
     tg.sendData(JSON.stringify(data));
-  }, [addedItems, orderFormData]);
+  }, [addedItems, orderFormData, tg]);
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
     return () => {
       tg.offEvent('mainButtonClicked', onSendData);
     };
-  }, [onSendData]);
+  }, [onSendData, tg]);
 
-  
   const onAdd = (product) => {
     // If the clicked product is the same as the selected one, reset the selection
     if (selectedProductId === product.id) {
@@ -49,18 +60,7 @@ const ProductList = () => {
       setSelectedProductId(product.id);
       setAddedItems([product]);
     }
-  
-    // Show the MainButton only if a product is selected and the form is filled
-    if (selectedProductId && isFormFilled()) {
-      tg.MainButton.show();
-      tg.MainButton.setParams({
-        text: `Сделать заказ`,
-      });
-    } else {
-      tg.MainButton.hide();
-    }
   };
-
 
   const isFormFilled = () => {
     const {
@@ -81,18 +81,16 @@ const ProductList = () => {
       );
     }
 
-
     return (
       noLaterThan.trim() !== '' &&
       paymentMethod.trim() !== '' &&
       orderComment.trim() !== ''
     );
-
   };
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
-      setOrderFormData({
+    setOrderFormData({
       ...orderFormData,
       [id]: value,
     });
