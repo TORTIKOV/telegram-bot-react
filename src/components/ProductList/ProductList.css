@@ -1,113 +1,164 @@
 /* ProductList.css */
 
 body {
-    font-family: "Calibri", sans-serif; /* Set font to Calibri */
-    background-color: var(--tg-theme-bg-color);
-    color: var(--tg-theme-text-color);
-  }
+  font-family: "Calibri", sans-serif; /* Set font to Calibri */
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next row */
+  gap: 20px; /* Add some space between items */
+  justify-content: center; /* Center align items horizontally */
+  padding: 16px;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.select-container {
+  margin-bottom: 16px;
+}
+
+.item {
+  flex: 0 0 calc(50% - 20px); /* Show two products in a row */
+  max-width: calc(50% - 20px); /* Show two products in a row */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid var(--tg-theme-hint-color);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item button {
+  font-family: "Calibri", sans-serif; /* Set font to Calibri */
+  background-color: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.item button:hover {
+  background-color: lighten(var(--tg-theme-button-color), 10%);
+}
+
+.product {
+  flex: 0 0 calc(50% - 20px); /* Show two products in a row */
+  max-width: calc(50% - 20px); /* Show two products in a row */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--tg-theme-secondary-bg-color);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.img img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.add-btn {
+  font-family: "Calibri", sans-serif; /* Set font to Calibri */
+  background-color: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.add-btn:focus {
+  outline: none;
+}
+
+.add-btn:hover {
+  background-color: lighten(var(--tg-theme-button-color), 10%);
+}
+
+.add-btn:active {
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.order-form {
+  font-family: "Calibri", sans-serif; /* Set font to Calibri */
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+  padding: 16px;
+  max-width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-top: 20px;
+}
   
-  .list {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next row */
-    gap: 20px; /* Add some space between items */
-    justify-content: center; /* Center align items horizontally */
-    padding: 16px;
-  }
+.order-form h2 {
+  margin-bottom: 16px;
+}
   
-  label {
-    font-weight: bold;
-    margin-right: 8px;
-  }
+.order-form ul {
+  padding-left: 24px;
+  margin: 0;
+}
   
-  select {
-    font-family: "Calibri", sans-serif; /* Set font to Calibri */
-    background-color: var(--tg-theme-button-color);
-    color: var(--tg-theme-button-text-color);
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+.order-form li {
+  list-style-type: none;
+}
   
-  .select-container {
-    margin-bottom: 16px;
-  }
+.order-form div {
+  margin-bottom: 16px;
+}
   
-  .item {
-    flex: 0 0 calc(50% - 20px); /* Show two products in a row */
-    max-width: calc(50% - 20px); /* Show two products in a row */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    border-bottom: 1px solid var(--tg-theme-hint-color);
-  }
+.order-form label {
+  display: block;
+  margin-bottom: 8px;
+}
   
-  .item:last-child {
-    border-bottom: none;
-  }
-  
-  .item button {
-    font-family: "Calibri", sans-serif; /* Set font to Calibri */
-    background-color: var(--tg-theme-button-color);
-    color: var(--tg-theme-button-text-color);
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .item button:hover {
-    background-color: lighten(var(--tg-theme-button-color), 10%);
-  }
-  
-  .product {
-    flex: 0 0 calc(50% - 20px); /* Show two products in a row */
-    max-width: calc(50% - 20px); /* Show two products in a row */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--tg-theme-secondary-bg-color);
-    padding: 16px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  .img img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .title {
-    font-size: 18px;
-    margin: 10px 0;
-    text-align: center;
-  }
-  
-  .add-btn {
-    font-family: "Calibri", sans-serif; /* Set font to Calibri */
-    background-color: var(--tg-theme-button-color);
-    color: var(--tg-theme-button-text-color);
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-  }
-  
-  .add-btn:focus {
-    outline: none;
-  }
-  
-  .add-btn:hover {
-    background-color: lighten(var(--tg-theme-button-color), 10%);
-  }
-  
-  .add-btn:active {
-    background-color: var(--tg-theme-secondary-bg-color);
-  }
-  
+.order-form input[type="datetime-local"],
+.order-form input[type="text"],
+.order-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--tg-theme-hint-color);
+  border-radius: 4px;
+}
+
+/* Apply secondary background color to the button */
+.order-form button {
+  background-color: var(--tg-theme-secondary-bg-color);
+  color: var(--tg-theme-button-text-color);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.order-form button:hover {
+  background-color: lighten(var(--tg-theme-secondary-bg-color), 10%);
+}
+
+.order-form button:focus {
+  outline: none;
+}
