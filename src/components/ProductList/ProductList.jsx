@@ -41,25 +41,13 @@ const ProductList = () => {
 
   
   const onAdd = (product) => {
-    let newItems = [];
+    // If the clicked product is the same as the selected one, reset the selection
     if (selectedProductId === product.id) {
-      // If the same product is clicked again, reset the selection
       setSelectedProductId(null);
       setAddedItems([]);
     } else {
       setSelectedProductId(product.id);
-      newItems = [product];
-      setAddedItems(newItems);
-    }
-
-    // Show MainButton only if there are added items and the form is filled
-    if (newItems.length === 0 || !isFormFilled()) {
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.show();
-      tg.MainButton.setParams({
-        text: `Сделать заказ`,
-      });
+      setAddedItems([product]);
     }
   };
 
@@ -105,6 +93,7 @@ const ProductList = () => {
           product={item}
           onAdd={onAdd}
           isSelected={selectedProductId === item.id}
+          isClickable={!selectedProductId || selectedProductId === item.id}
           className={'item'}
         />
       ))}

@@ -9,12 +9,14 @@ import wbImage from '../../images/image11.jpg';
 import lentaImage from '../../images/image11.jpg';
 import andreikaImage from '../../images/image11.jpg';
 
-const ProductItem = ({ product, className, onAdd, isSelected }) => {
+const ProductItem = ({ product, className, onAdd, isSelected, isClickable }) => {
   const [clickCount, setClickCount] = useState(0);
 
   const onAddHandler = () => {
-    onAdd(product);
-    setClickCount((prevCount) => prevCount + 1);
+    if (isClickable) {
+      onAdd(product);
+      setClickCount((prevCount) => prevCount + 1);
+    }
   };
 
   // Map product IDs to corresponding images
@@ -49,7 +51,7 @@ const ProductItem = ({ product, className, onAdd, isSelected }) => {
               : 'var(--tg-theme-secondary-bg-color)',
         }}
       >
-        Заказать
+        {clickCount % 2 === 0 ? 'Заказать' : 'Выбрано'}
       </Button>
     </div>
   );
