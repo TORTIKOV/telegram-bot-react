@@ -15,9 +15,9 @@ const ProductList = () => {
   const [addedItems, setAddedItems] = useState([]);
   const [orderFormData, setOrderFormData] = useState({
     deliveryOption: 'KPP',
-    dormOption: '',
-    floorOption: '',
-    roomOption: '',
+    dormOption: '0',
+    floorOption: '0',
+    roomOption: '0',
     noLaterThan: '',
     paymentMethod: '',
     orderComment: '',
@@ -163,7 +163,7 @@ const ProductList = () => {
           </div>
 
           {/* Conditional rendering based on the selected delivery option */}
-          {orderFormData.deliveryOption === 'DORM' ? (
+          {orderFormData.deliveryOption === 'DORM' && (
             <div>
               <label htmlFor="dormOption">Номер общежития:</label>
               <select
@@ -183,6 +183,8 @@ const ProductList = () => {
                     <option value={'22'}>№22</option>
                     <option value={'23'}>№23</option>
               </select>
+              {orderFormData.dormOption !== '0' && (
+              <div>
               <label htmlFor="floorOption">Этаж:</label>
               <select
                 id="floorOption"
@@ -205,31 +207,38 @@ const ProductList = () => {
                         <option value={'13'}>13</option>
                         <option value={'14'}>14</option>
               </select>
-
+              </div>
+              )}
+              {orderFormData.dormOption !== '0' && orderFormData.floorOption !== '0' && (
+              <div>
               <label htmlFor="roomOption">Блок:</label>
               <select
                 id="roomOption"
                 value={orderFormData.roomOption}
                 onChange={handleInputChange}
-              >
+              >         
                <option value={'0'}>Не указан</option>               
-                        <option value={'1'}>1</option>
-                        <option value={'2'}>2</option>
-                        <option value={'3'}>3</option>
-                        <option value={'4'}>4</option>
-                        <option value={'5'}>5</option>
-                        <option value={'6'}>6</option>
-                        <option value={'7'}>7</option>
-                        <option value={'8'}>8</option>
-                        <option value={'9'}>9</option>
-                        <option value={'10'}>10</option>
-                        <option value={'11'}>11</option>
-                        <option value={'12'}>12</option>
-                        <option value={'13'}>13</option>
-                        <option value={'14'}>14</option>
+                        <option value={'1'}>{orderFormData.floorOption}01</option>
+                        <option value={'2'}>{orderFormData.floorOption}02</option>
+                        <option value={'3'}>{orderFormData.floorOption}03</option>
+                        <option value={'4'}>{orderFormData.floorOption}04</option>
+                        <option value={'5'}>{orderFormData.floorOption}05</option>
+                        <option value={'6'}>{orderFormData.floorOption}06</option>
+                        <option value={'7'}>{orderFormData.floorOption}07</option>
+                        <option value={'8'}>{orderFormData.floorOption}08</option>
+                        <option value={'9'}>{orderFormData.floorOption}09</option>
+                        <option value={'10'}>{orderFormData.floorOption}10</option>
+                        <option value={'11'}>{orderFormData.floorOption}11</option>
+                        <option value={'12'}>{orderFormData.floorOption}12</option>
+                        <option value={'13'}>{orderFormData.floorOption}13</option>
+                        <option value={'14'}>{orderFormData.floorOption}14</option>
+                        <option value={'15'}>{orderFormData.floorOption}15</option>
+                        <option value={'16'}>{orderFormData.floorOption}16</option>
               </select>
+              </div>
+              )}
             </div>
-          ) : null}
+          )}
 
         </div>
       )}

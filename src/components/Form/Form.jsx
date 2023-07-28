@@ -132,20 +132,22 @@ const Form = () => {
                     <label htmlFor="room">Номер комнаты </label>
                     <select value={room} onChange={onChangeRoom} className={'select'}>
                         <option value={'0'}>Не указан</option>               
-                        <option value={'1'}>1</option>
-                        <option value={'2'}>2</option>
-                        <option value={'3'}>3</option>
-                        <option value={'4'}>4</option>
-                        <option value={'5'}>5</option>
-                        <option value={'6'}>6</option>
-                        <option value={'7'}>7</option>
-                        <option value={'8'}>8</option>
-                        <option value={'9'}>9</option>
-                        <option value={'10'}>10</option>
-                        <option value={'11'}>11</option>
-                        <option value={'12'}>12</option>
-                        <option value={'13'}>13</option>
-                        <option value={'14'}>14</option>
+                        <option value={'1'}>{floor}01</option>
+                        <option value={'2'}>{floor}02</option>
+                        <option value={'3'}>{floor}03</option>
+                        <option value={'4'}>{floor}04</option>
+                        <option value={'5'}>{floor}05</option>
+                        <option value={'6'}>{floor}06</option>
+                        <option value={'7'}>{floor}07</option>
+                        <option value={'8'}>{floor}08</option>
+                        <option value={'9'}>{floor}09</option>
+                        <option value={'10'}>{floor}10</option>
+                        <option value={'11'}>{floor}11</option>
+                        <option value={'12'}>{floor}12</option>
+                        <option value={'13'}>{floor}13</option>
+                        <option value={'14'}>{floor}14</option>
+                        <option value={'15'}>{floor}15</option>
+                        <option value={'16'}>{floor}16</option>
                     </select>
                 </div>
             )}
