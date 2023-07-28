@@ -49,6 +49,14 @@ const ProductList = () => {
       setSelectedProductId(product.id);
       setAddedItems([product]);
     }
+    if (!isFormFilled()) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.show();
+      tg.MainButton.setParams({
+        text: `Сделать заказ`,
+      });
+    }
   };
 
   const isFormFilled = () => {
