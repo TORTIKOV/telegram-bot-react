@@ -156,9 +156,9 @@ const ProductList = () => {
               value={orderFormData.deliveryOption}
               onChange={handleInputChange}
             >
-              <option value="KPP">KPP</option>
-              <option value="CP">CP</option>
-              <option value="DORM">DORM</option>
+              <option value="KPP">КПП</option>
+              <option value="CP">Центр ПУНКа</option>
+              <option value="DORM">Общежитие</option>
             </select>
           </div>
 
@@ -171,7 +171,17 @@ const ProductList = () => {
                 value={orderFormData.dormOption}
                 onChange={handleInputChange}
               >
-                {/* ... options for dorm ... */}
+                <option value={'0'}>Не указан</option>
+                    <option value={'10'}>№10</option>
+                    <option value={'12'}>№12</option>
+                    <option value={'13'}>№13</option>
+                    <option value={'14'}>№14</option>
+                    <option value={'15'}>№15</option>
+                    <option value={'16'}>№16</option>
+                    <option value={'20'}>№20</option>
+                    <option value={'21'}>№21</option>
+                    <option value={'22'}>№22</option>
+                    <option value={'23'}>№23</option>
               </select>
               <label htmlFor="floorOption">Этаж:</label>
               <select
@@ -179,7 +189,21 @@ const ProductList = () => {
                 value={orderFormData.floorOption}
                 onChange={handleInputChange}
               >
-                {/* ... options for floor ... */}
+                <option value={'0'}>Не указан</option>
+                        <option value={'1'}>1</option>
+                        <option value={'2'}>2</option>
+                        <option value={'3'}>3</option>
+                        <option value={'4'}>4</option>
+                        <option value={'5'}>5</option>
+                        <option value={'6'}>6</option>
+                        <option value={'7'}>7</option>
+                        <option value={'8'}>8</option>
+                        <option value={'9'}>9</option>
+                        <option value={'10'}>10</option>
+                        <option value={'11'}>11</option>
+                        <option value={'12'}>12</option>
+                        <option value={'13'}>13</option>
+                        <option value={'14'}>14</option>
               </select>
 
               <label htmlFor="roomOption">Блок:</label>
@@ -188,7 +212,21 @@ const ProductList = () => {
                 value={orderFormData.roomOption}
                 onChange={handleInputChange}
               >
-                {/* ... options for room ... */}
+               <option value={'0'}>Не указан</option>               
+                        <option value={'1'}>1</option>
+                        <option value={'2'}>2</option>
+                        <option value={'3'}>3</option>
+                        <option value={'4'}>4</option>
+                        <option value={'5'}>5</option>
+                        <option value={'6'}>6</option>
+                        <option value={'7'}>7</option>
+                        <option value={'8'}>8</option>
+                        <option value={'9'}>9</option>
+                        <option value={'10'}>10</option>
+                        <option value={'11'}>11</option>
+                        <option value={'12'}>12</option>
+                        <option value={'13'}>13</option>
+                        <option value={'14'}>14</option>
               </select>
             </div>
           ) : null}
