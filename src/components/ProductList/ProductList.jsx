@@ -49,7 +49,7 @@ const ProductList = () => {
       setSelectedProductId(product.id);
       setAddedItems([product]);
     }
-    if (selectedProductId !== null && isFormFilled()) {
+    if (selectedProductId != null && isFormFilled()) {
       tg.MainButton.show();
       tg.MainButton.setParams({
         text: `Сделать заказ`,
@@ -108,7 +108,7 @@ const ProductList = () => {
         className={'item'}
       />
       ))}
-      {selectedProductId && (
+      {selectedProductId != null && (
         <div className="order-form">
           <h2>Заказ</h2>
           <div>
