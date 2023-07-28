@@ -69,7 +69,7 @@ const ProductList = () => {
 
     if (deliveryOption === 'DORM') {
       return (
-        selectedProductId && 
+        !selectedProductId && 
         noLaterThan.trim() !== '' &&
         paymentMethod.trim() !== '' &&
         orderComment.trim() !== '' &&
@@ -80,7 +80,7 @@ const ProductList = () => {
     }
 
     return (
-      selectedProductId &&
+      !selectedProductId &&
       noLaterThan.trim() !== '' &&
       paymentMethod.trim() !== '' &&
       orderComment.trim() !== ''
