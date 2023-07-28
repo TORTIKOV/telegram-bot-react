@@ -49,7 +49,9 @@ const ProductList = () => {
       setSelectedProductId(product.id);
       setAddedItems([product]);
     }
-    if (selectedProductId != null && isFormFilled()) {
+  
+    // Show the MainButton only if a product is selected and the form is filled
+    if (selectedProductId && isFormFilled()) {
       tg.MainButton.show();
       tg.MainButton.setParams({
         text: `Сделать заказ`,
