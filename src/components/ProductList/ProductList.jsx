@@ -49,7 +49,7 @@ const ProductList = () => {
       setSelectedProductId(product.id);
       setAddedItems([product]);
     }
-    if (!isFormFilled() || !selectedProductId) {
+    if (!selectedProductId || !isFormFilled()) {
       tg.MainButton.hide();
     } else {
       tg.MainButton.show();
@@ -70,7 +70,6 @@ const ProductList = () => {
 
     if (deliveryOption === 'DORM') {
       return (
-        selectedProductId &&
         noLaterThan.trim() !== '' &&
         paymentMethod.trim() !== '' &&
         orderComment.trim() !== '' &&
@@ -82,7 +81,6 @@ const ProductList = () => {
 
 
     return (
-      selectedProductId &&
       noLaterThan.trim() !== '' &&
       paymentMethod.trim() !== '' &&
       orderComment.trim() !== ''
