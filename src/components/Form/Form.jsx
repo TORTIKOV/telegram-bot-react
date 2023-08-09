@@ -8,6 +8,7 @@ const Form = () => {
     const [dorm, setDorm] = useState('0');
     const [floor, setFloor] = useState('0');
     const [room, setRoom] = useState('0');
+    const [agreementAccepted, setAgreementAccepted] = useState(false); 
 
     const { tg } = useTelegram();
 
@@ -20,7 +21,7 @@ const Form = () => {
             room: room
         }
         tg.sendData(JSON.stringify(data));
-    }, [name, phone, dorm, floor, room]);
+    }, [name, phone, dorm, floor, room, agreementAccepted]);
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData);
@@ -36,12 +37,13 @@ const Form = () => {
     }, []);
 
     useEffect(() => {
-        if (!phone || typeof phone !== "number" || isNaN(phone) || phone.toString().length !== 11 || !name) {
+        if (!phone || typeof phone !== "number" || isNaN(phone) || phone.toString().length !== 11 || !name ||
+        !agreementAccepted) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [name, phone]);
+    }, [name, phone, agreementAccepted]);
 
     const onChangeName = (e) => {
         setName(e.target.value);
@@ -72,8 +74,23 @@ const Form = () => {
         setRoom(e.target.value);
     };
 
+    const onAgreementChange = (e) => {
+        setAgreementAccepted(e.target.checked);
+    };
+
+
     return (
         <div className={"form"}>
+            <div className="agreement">
+            <label>
+                <input
+                    type="checkbox"
+                    checked={agreementAccepted}
+                    onChange={onAgreementChange}
+                 />
+            <a href="/agreement">Пользовательское соглашение</a>
+            </label>
+        </div>
             <h3>Введите ваши данные</h3>
             <input
                 className={'input'}
@@ -151,6 +168,7 @@ const Form = () => {
                     </select>
                 </div>
             )}
+            
         </div>
     );
 };

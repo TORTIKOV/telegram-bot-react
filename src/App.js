@@ -5,6 +5,7 @@ import Header from "./components/Header/Header"
 import {Route, Routes} from 'react-router-dom'
 import ProductList from './components/ProductList/ProductList';
 import Form from './components/Form/Form';
+import Agreement from './components/Agreement/Agreement';
 //import OrderPage from './components/OrderPage/OrderPage';
 
 
@@ -23,7 +24,7 @@ function App() {
         <Routes>
             <Route index element={<ProductList />}/>
             <Route path={'/form'} element={<Form />}/>
-            {/*<Route path={'/order'} element={<OrderPage />} />*/}
+            <Route path={'/agreement'} element={<Agreement />} />
         </Routes>
     </div>
   );
