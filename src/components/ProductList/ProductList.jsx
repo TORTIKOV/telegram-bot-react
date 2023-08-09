@@ -5,9 +5,11 @@ import { useTelegram } from '../../hooks/useTelegram';
 
 const products = [
   { id: 1, title: 'Ozon' },
-  { id: 2, title: 'Wb' },
-  { id: 3, title: 'Lenta' },
+  { id: 2, title: 'Wildberries' },
+  { id: 3, title: 'Лента' },
   { id: 4, title: 'Андрейка' },
+  { id: 5, title: 'Аптека' }, // New item
+  { id: 6, title: 'Другое(указать в комментариях)' },    // New item
 ];
 
 const ProductList = () => {
@@ -26,7 +28,7 @@ const ProductList = () => {
 
   useEffect(() => {
     // Show or hide the MainButton based on selection and form data
-    if (selectedProductId && isFormFilled()) {
+    if (selectedProductId && isFormValid()) {
       tg.MainButton.show();
       tg.MainButton.setParams({
         text: `Сделать заказ`,
@@ -60,9 +62,10 @@ const ProductList = () => {
       setSelectedProductId(product.id);
       setAddedItems([product]);
     }
+    
   };
 
-  const isFormFilled = () => {
+  const isFormValid = () => {
     const {
       noLaterThan,
       paymentMethod,
@@ -70,15 +73,16 @@ const ProductList = () => {
       deliveryOption,
     } = orderFormData;
 
-     // Check if the selected date is not more than one week from now
-     const selectedDate = new Date(noLaterThan);
-     const currentDate = new Date();
-     const oneWeekFromNow = new Date(currentDate);
-     oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
- 
-     if (selectedDate < currentDate || selectedDate > oneWeekFromNow) {
-       return false; // Date is longer than one week from now
-     }
+    const selectedDate = new Date(noLaterThan);
+    const currentDate = new Date();
+
+    // Check if the selected date is not earlier than the current date and not more than one week from now
+    const oneWeekFromNow = new Date(currentDate);
+    oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+
+    if (selectedDate < currentDate || selectedDate > oneWeekFromNow) {
+      return false;
+    }
 
     if (deliveryOption === 'DORM') {
       return (

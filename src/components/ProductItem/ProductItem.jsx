@@ -6,6 +6,8 @@ import ozonImage from '../../images/image11.jpg';
 import wbImage from '../../images/image11.jpg';
 import lentaImage from '../../images/image11.jpg';
 import andreikaImage from '../../images/image11.jpg';
+import pharmacyImage from '../../images/image11.jpg'; // New image
+import otherImage from '../../images/image11.jpg'; 
 
 const ProductItem = ({ product, className, onAdd, isSelected, isClickable }) => {
   const [clickCount, setClickCount] = useState(0);
@@ -33,6 +35,10 @@ const ProductItem = ({ product, className, onAdd, isSelected, isClickable }) => 
         return lentaImage;
       case 4:
         return andreikaImage;
+      case 5:
+        return pharmacyImage; // New image
+      case 6:
+        return otherImage;    // New image
       default:
         return null; // If no image is available for the product
     }
