@@ -70,6 +70,16 @@ const ProductList = () => {
       deliveryOption,
     } = orderFormData;
 
+     // Check if the selected date is not more than one week from now
+     const selectedDate = new Date(noLaterThan);
+     const currentDate = new Date();
+     const oneWeekFromNow = new Date(currentDate);
+     oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+ 
+     if (selectedDate > oneWeekFromNow) {
+       return false; // Date is longer than one week from now
+     }
+
     if (deliveryOption === 'DORM') {
       return (
         noLaterThan.trim() !== '' &&
