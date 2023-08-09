@@ -35,7 +35,7 @@ const Agreement = () => {
         disabled={!agreementAccepted}
         onClick={handleAgreementSubmit}
       >
-        Подтвердить согласие
+        Вернуться назад
       </button>
 
       <head>

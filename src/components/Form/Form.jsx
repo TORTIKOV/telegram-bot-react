@@ -88,7 +88,7 @@ const Form = () => {
                     checked={agreementAccepted}
                     onChange={onAgreementChange}
                  />
-            <a href="/agreement">Пользовательское соглашение</a>
+            Я прочитал и согласен с условиями <a href="/agreement">пользовательского соглашения</a>
             </label>
         </div>
             <h3>Введите ваши данные</h3>
