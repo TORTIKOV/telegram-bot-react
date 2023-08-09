@@ -76,7 +76,7 @@ const ProductList = () => {
      const oneWeekFromNow = new Date(currentDate);
      oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
  
-     if (selectedDate > oneWeekFromNow) {
+     if (selectedDate < currentDate || selectedDate > oneWeekFromNow) {
        return false; // Date is longer than one week from now
      }
 
@@ -130,7 +130,7 @@ const ProductList = () => {
             </ul>
           </div>
           <div>
-            <label htmlFor="noLaterThan">Крайний срок:</label>
+            <label htmlFor="noLaterThan">Крайний срок:(Не более недели вперед)</label>
             <input
               className={'input'}
               type="datetime-local"
