@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import './ProductItem.css';
 // Import your product images
-import ozonImage from '../../images/image11.jpg';
-import wbImage from '../../images/image11.jpg';
-import lentaImage from '../../images/image11.jpg';
-import andreikaImage from '../../images/image11.jpg';
-import pharmacyImage from '../../images/image11.jpg'; // New image
-import otherImage from '../../images/image11.jpg'; 
+import ozonImage from '../../images/ozon_logo.png';
+import wbImage from '../../images/wildberries_logo.png';
+import lentaImage from '../../images/lenta_logo.png';
+import andreikaImage from '../../images/andreyka_logo.png';
+import pharmacyImage from '../../images/pharma_logo.png'; // New image
+import otherImage from '../../images/others_logo.png'; 
 
 const ProductItem = ({ product, className, onAdd, isSelected, isClickable }) => {
   const [clickCount, setClickCount] = useState(0);
