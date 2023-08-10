@@ -18,25 +18,6 @@ const Agreement = () => {
 
   return (
     <div className="agreement-page">
-      <h1>Пользовательское соглашение для бота "OnTheWay"</h1>
-
-      <div className="agreement">
-        <label>
-          <input
-            type="checkbox"
-            checked={agreementAccepted}
-            onChange={onAgreementChange}
-          />
-          Я прочитал и согласен с условиями пользовательского соглашения
-        </label>
-      </div>
-      <button
-        className="submit-button"
-        disabled={!agreementAccepted}
-        onClick={handleAgreementSubmit}
-      >
-        Вернуться назад
-      </button>
 
       <head>
   <title>Пользовательское соглашение для бота "OnTheWay"</title>
