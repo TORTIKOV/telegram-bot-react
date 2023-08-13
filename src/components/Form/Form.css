@@ -90,3 +90,39 @@ h3 {
   color: var(--tg-theme-link-color);
   text-decoration: none;
 }
+
+/* New styles for phone input */
+.phone-input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.phone-label {
+  font-family: "Calibri", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--tg-theme-text-color);
+  margin-right: 10px;
+}
+
+.phone-input-group {
+  display: flex;
+  align-items: center;
+}
+
+.phone-prefix {
+  font-family: "Calibri", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--tg-theme-text-color);
+}
+
+.phone-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--tg-theme-hint-color);
+  border-radius: 5px;
+  font-family: "Calibri", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--tg-theme-text-color);
+  background-color: var(--tg-theme-secondary-bg-color);
+}

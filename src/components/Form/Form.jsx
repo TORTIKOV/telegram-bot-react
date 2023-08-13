@@ -4,7 +4,7 @@ import { useTelegram } from "../../hooks/useTelegram";
 
 const Form = () => {
     const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
+    const [phone, setPhone] = useState('+7');
     const [dorm, setDorm] = useState('0');
     const [floor, setFloor] = useState('0');
     const [room, setRoom] = useState('0');
@@ -15,7 +15,7 @@ const Form = () => {
     const onSendData = useCallback(() => {
         const data = {
             name: name,
-            phone: phone,
+            phone: phone.replace(/[^0-9]/g, ''), 
             dorm: dorm,
             floor: floor,
             room: room
@@ -37,7 +37,7 @@ const Form = () => {
     }, []);
 
     useEffect(() => {
-        if (!phone || typeof phone !== "number" || isNaN(phone) || phone.toString().length !== 11 || !name ||
+        if (!phone || typeof phone !== "number" || isNaN(phone) || !name ||
         !agreementAccepted) {
             tg.MainButton.hide();
         } else {
@@ -50,13 +50,9 @@ const Form = () => {
     };
 
     const onChangePhone = (e) => {
-        const inputPhone = e.target.value;
-        const parsedPhone = parseInt(inputPhone, 10);
-        if (isNaN(parsedPhone)) {
-            setPhone('');
-        } else {
-            setPhone(parsedPhone);
-        }
+        const inputValue = e.target.value;
+        const numericValue = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+        setPhone('+' + numericValue);
     };
 
     const onChangeDorm = (e) => {
@@ -99,13 +95,16 @@ const Form = () => {
             value={name}
             onChange={onChangeName}
           />
-          <input
-            className="input"
-            type="text"
-            placeholder="Телефон"
-            value={phone}
-            onChange={onChangePhone}
-          />
+          <div className="phone-input-container">
+                <input
+                    className="phone-input"
+                    type="text"
+                    placeholder="+7 ___ ___ __ __"
+                    maxLength="15" // Total length of "+7 ___ ___ __ __"
+                    value={phone}
+                    onChange={onChangePhone}
+                />
+            </div>
           <div className="select-container">
             <span className="select-label">Общежитие</span>
             <select value={dorm} onChange={onChangeDorm} className="select">
