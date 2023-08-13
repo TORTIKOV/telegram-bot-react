@@ -78,55 +78,55 @@ const Form = () => {
         setAgreementAccepted(e.target.checked);
     };
 
-
     return (
-        <div className={"form"}>
-            <div className="agreement">
+        <div className="form">
+          <div className="agreement">
             <label>
-                <input
-                    type="checkbox"
-                    checked={agreementAccepted}
-                    onChange={onAgreementChange}
-                 />
-            Я прочитал и согласен с условиями <a href="/agreement">пользовательского соглашения</a>
+              <input
+                type="checkbox"
+                checked={agreementAccepted}
+                onChange={onAgreementChange}
+              />
+              Я прочитал и согласен с условиями{" "}
+              <a href="/agreement">пользовательского соглашения</a>
             </label>
-        </div>
-            <h3>Введите ваши данные</h3>
-            <input
-                className={'input'}
-                type="text"
-                placeholder={'Имя'}
-                value={name}
-                onChange={onChangeName}
-            />
-            <input
-                className={'input'}
-                type="text"
-                placeholder={'Телефон'}
-                value={phone}
-                onChange={onChangePhone}
-            />
-            <div>
-                <label htmlFor="dorm">Номер общежития </label>
-                <select value={dorm} onChange={onChangeDorm} className={'select'}>
-                    <option value={'0'}>Не указан</option>
-                    <option value={'10'}>№10</option>
-                    <option value={'12'}>№12</option>
-                    <option value={'13'}>№13</option>
-                    <option value={'14'}>№14</option>
-                    <option value={'15'}>№15</option>
-                    <option value={'16'}>№16</option>
-                    <option value={'20'}>№20</option>
-                    <option value={'21'}>№21</option>
-                    <option value={'22'}>№22</option>
-                    <option value={'23'}>№23</option>
-                </select>
-            </div>
-            {dorm !== '0' && (  // Conditionally render the floor select based on dorm selection
-                <div>
-                    <label htmlFor="floor">Этаж </label>
-                    <select value={floor} onChange={onChangeFloor} className={'select'}>
-                        <option value={'0'}>Не указан</option>
+          </div>
+          <h3>Введите ваши данные</h3>
+          <input
+            className="input"
+            type="text"
+            placeholder="Имя"
+            value={name}
+            onChange={onChangeName}
+          />
+          <input
+            className="input"
+            type="text"
+            placeholder="Телефон"
+            value={phone}
+            onChange={onChangePhone}
+          />
+          <div className="select-container">
+            <span className="select-label">Общежитие</span>
+            <select value={dorm} onChange={onChangeDorm} className="select">
+            <option value={'0'}>Не указан</option>
+                        <option value={'10'}>№10</option>
+                        <option value={'12'}>№12</option>
+                        <option value={'13'}>№13</option>
+                        <option value={'14'}>№14</option>
+                        <option value={'15'}>№15</option>
+                        <option value={'16'}>№16</option>
+                        <option value={'20'}>№20</option>
+                        <option value={'21'}>№21</option>
+                        <option value={'22'}>№22</option>
+                        <option value={'23'}>№23</option>
+            </select>
+          </div>
+          {dorm !== "0" && (
+            <div className="select-container">
+              <span className="select-label">Этаж</span>
+              <select value={floor} onChange={onChangeFloor} className="select">
+              <option value={'0'}>Не указан</option>
                         <option value={'1'}>1</option>
                         <option value={'2'}>2</option>
                         <option value={'3'}>3</option>
@@ -141,14 +141,14 @@ const Form = () => {
                         <option value={'12'}>12</option>
                         <option value={'13'}>13</option>
                         <option value={'14'}>14</option>
-                    </select>
-                </div>
-            )}
-            {floor !== '0' && (  // Conditionally render the room select based on floor selection
-                <div>
-                    <label htmlFor="room">Номер комнаты </label>
-                    <select value={room} onChange={onChangeRoom} className={'select'}>
-                        <option value={'0'}>Не указан</option>               
+              </select>
+            </div>
+          )}
+          {floor !== "0" && (
+            <div className="select-container">
+              <span className="select-label">Комната</span>
+              <select value={room} onChange={onChangeRoom} className="select">
+              <option value={'0'}>Не указан</option>               
                         <option value={'1'}>{floor}01</option>
                         <option value={'2'}>{floor}02</option>
                         <option value={'3'}>{floor}03</option>
@@ -165,12 +165,11 @@ const Form = () => {
                         <option value={'14'}>{floor}14</option>
                         <option value={'15'}>{floor}15</option>
                         <option value={'16'}>{floor}16</option>
-                    </select>
-                </div>
-            )}
-            
+              </select>
+            </div>
+          )}
         </div>
-    );
+      );
 };
 
 export default Form;

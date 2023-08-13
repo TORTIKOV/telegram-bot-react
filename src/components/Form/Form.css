@@ -33,20 +33,46 @@ h3 {
 
 .select {
   padding: 10px;
-  margin-top: 15px;
   font-family: "Calibri", Arial, sans-serif;
   font-size: 16px;
   border: 1px solid var(--tg-theme-hint-color);
   border-radius: 5px;
   color: var(--tg-theme-text-color);
   background-color: var(--tg-theme-secondary-bg-color);
+  width: 10%;
+  text-align: center;
 }
 
-label {
+.select-container {
+  display: flex;
+  justify-content: space-between; /* Align items with space between them */
+  align-items: center;
+  margin-top: 15px;
+}
+
+.select-label {
   font-family: "Calibri", Arial, sans-serif;
   font-size: 16px;
   color: var(--tg-theme-text-color);
-  margin-bottom: 5px;
+}
+
+.label-and-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.label-and-select label {
+  width: 150px; /* Set a fixed width for the label */
+  font-family: "Calibri", Arial, sans-serif;
+  font-size: 16px;
+  color: var(--tg-theme-text-color);
+}
+
+.selection-buttons {
+  display: flex;
+  align-items: center;
 }
 
 .agreement {
