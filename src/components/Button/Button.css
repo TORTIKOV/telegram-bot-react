@@ -5,15 +5,16 @@
 /*  }*/
   
 .button {
-    padding: 10px 15px;
-    background: var(--tg-theme-button-color); /* Use the button background color variable */
-    color: var(--tg-theme-button-text-color); /* Use the button text color variable */
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-family: "Calibri", Arial, sans-serif; /* Use Calibri as the font for the button */
-    font-size: 16px; /* Replace with your desired font size for the button */
-    font-weight: bold;
-    border-radius: 5px;
-    /* Add any additional styles you want for the button, e.g., box-shadow, hover effects, etc. */
-  }
+  width: 100%; /* Set the button width to 100% */
+  padding: 10px 15px;
+  background: var(--tg-theme-button-color); /* Use the button background color variable */
+  color: var(--tg-theme-button-text-color); /* Use the button text color variable */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: "Calibri", Arial, sans-serif; /* Use Calibri as the font for the button */
+  font-size: 16px; /* Replace with your desired font size for the button */
+  font-weight: bold;
+  border-radius: 5px;
+  /* Add any additional styles you want for the button, e.g., box-shadow, hover effects, etc. */
+}
