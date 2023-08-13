@@ -37,7 +37,7 @@ const Form = () => {
     }, []);
 
     useEffect(() => {
-        if (!phone || typeof phone !== "number" || isNaN(phone) || !name ||
+        if (!phone || isNaN(phone) || !name ||
         !agreementAccepted) {
             tg.MainButton.hide();
         } else {
