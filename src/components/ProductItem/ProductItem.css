@@ -48,4 +48,12 @@
   .add-btn:active {
     background-color: var(--tg-theme-secondary-bg-color);
   }
+
+  /* Apply styles to the product title */
+  .product-title {
+  font-size: 18px; /* Set the font size for the title */
+  margin: 10px 0; /* Add margin above and below the title */
+  text-align: center; /* Center align the title */
+  color: var(--tg-theme-text-primary); /* Set the text color for the title */
+  }
   

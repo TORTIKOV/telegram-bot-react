@@ -50,6 +50,16 @@ const ProductItem = ({ product, className, onAdd, isSelected, isClickable }) => 
         <img src={getProductImage(product.id)} alt={product.title} />
       </div>
 
+      <div className={'product-title'}>
+        {/* Display the name of the product based on its ID */}
+        {product.id === 1 && 'Ozon'}
+        {product.id === 2 && 'Wildberries'}
+        {product.id === 3 && 'Лента'}
+        {product.id === 4 && 'Андрейка'}
+        {product.id === 5 && 'Аптека'}
+        {product.id === 6 && 'Другое'}
+      </div>
+      
       <Button
         className={'add-btn'}
         onClick={onAddHandler}
