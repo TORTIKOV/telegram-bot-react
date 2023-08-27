@@ -22,7 +22,7 @@ const ProductList = () => {
     roomOption: '0',
     noLaterThan: '',
     paymentMethod: '',
-    orderComment: '',
+    orderComment: '-',
   });
   const { tg } = useTelegram();
 
