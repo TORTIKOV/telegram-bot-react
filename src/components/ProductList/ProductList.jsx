@@ -248,6 +248,8 @@ const ProductList = () => {
                         <option value={'14'}>{orderFormData.floorOption}14</option>
                         <option value={'15'}>{orderFormData.floorOption}15</option>
                         <option value={'16'}>{orderFormData.floorOption}16</option>
+                        <option value={'17'}>{orderFormData.floorOption}16</option>
+                        <option value={'18'}>{orderFormData.floorOption}16</option>
               </select>
               </div>
               )}
