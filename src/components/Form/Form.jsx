@@ -169,6 +169,10 @@ const Form = () => {
                         <option value={'19'}>{floor}19</option>
                         <option value={'20'}>{floor}20</option>
                         <option value={'21'}>{floor}21</option>
+                        <option value={'22'}>{floor}22</option>
+                        <option value={'23'}>{floor}23</option>
+                        <option value={'24'}>{floor}24</option>
+                        <option value={'25'}>{floor}25</option>
               </select>
             </div>
           )}

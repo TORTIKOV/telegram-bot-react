@@ -248,11 +248,16 @@ const ProductList = () => {
                         <option value={'14'}>{orderFormData.floorOption}14</option>
                         <option value={'15'}>{orderFormData.floorOption}15</option>
                         <option value={'16'}>{orderFormData.floorOption}16</option>
-                        <option value={'17'}>{orderFormData.floorOption}16</option>
-                        <option value={'18'}>{orderFormData.floorOption}16</option>
+                        <option value={'17'}>{orderFormData.floorOption}17</option>
+                        <option value={'18'}>{orderFormData.floorOption}18</option>
                         <option value={'19'}>{orderFormData.floorOption}19</option>
                         <option value={'20'}>{orderFormData.floorOption}20</option>
                         <option value={'21'}>{orderFormData.floorOption}21</option>
+                        <option value={'22'}>{orderFormData.floorOption}22</option>
+                        <option value={'23'}>{orderFormData.floorOption}23</option>
+                        <option value={'24'}>{orderFormData.floorOption}24</option>
+                        <option value={'25'}>{orderFormData.floorOption}25</option>
+
               </select>
               </div>
               )}
