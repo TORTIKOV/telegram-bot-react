@@ -144,7 +144,8 @@ const ProductList = () => {
             />
           </div>
           <div>
-            <label htmlFor="paymentMethod">Метод оплаты:</label>
+            <label htmlFor="paymentMethod">Метод оплаты доставки:</label>
+            <text>Еда/Деньги/Сигареты (ваш вариант + количество)</text>
             <input
               type="text"
               id="paymentMethod"
