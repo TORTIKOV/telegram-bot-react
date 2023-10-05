@@ -13,6 +13,12 @@ const products = [
   { id: 7, title: 'Другое(указать в комментариях)' },    // New item
 ];
 
+const MAX_LENGTHS = {
+  paymentMethod: 50,
+  orderComment: 100,
+  orderCommentOther: 100 // Maximum length for "Другое" option
+};
+
 const ProductList = () => {
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [addedItems, setAddedItems] = useState([]);
@@ -103,11 +109,21 @@ const ProductList = () => {
     );
   };
 
-  const handleInputChange = (event) => {
+   const handleInputChange = (event) => {
     const { id, value } = event.target;
+    let maxLength = MAX_LENGTHS[id] || 100; // Default maximum length is 100
+
+    // Adjust maximum length for orderComment based on the delivery option
+    if (id === 'orderComment' && orderFormData.deliveryOption === 'DORM') {
+      maxLength = MAX_LENGTHS.orderCommentOther;
+    }
+
+    // Trim the value if it exceeds the maximum length
+    const trimmedValue = value.slice(0, maxLength);
+
     setOrderFormData({
       ...orderFormData,
-      [id]: value,
+      [id]: trimmedValue,
     });
   };
 
@@ -145,24 +161,30 @@ const ProductList = () => {
             />
           </div>
           <div>
-            <label htmlFor="paymentMethod">Метод оплаты доставки:</label>
-            <text>Еда/Деньги/Сигареты (ваш вариант + количество)</text>
+          <label htmlFor="paymentMethod">Метод оплаты доставки:</label>
+          <div className="input-container">
             <input
               type="text"
               id="paymentMethod"
               value={orderFormData.paymentMethod}
               onChange={handleInputChange}
             />
+            <div className="counter">{MAX_LENGTHS.paymentMethod - orderFormData.paymentMethod.length}</div>
           </div>
-          <div>
-            <label htmlFor="orderComment">Комментарий к заказу:</label>
+        </div>
+
+        <div>
+          <label htmlFor="orderComment">Комментарий к заказу:</label>
+          <div className="input-container">
             <input
               type="text"
               id="orderComment"
               value={orderFormData.orderComment}
               onChange={handleInputChange}
             />
+            <div className="counter">{MAX_LENGTHS.orderComment - orderFormData.orderComment.length}</div>
           </div>
+        </div>
 
           {/* New selection field for delivery options */}
           <div>

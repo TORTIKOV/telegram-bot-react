@@ -162,3 +162,15 @@ body {
 .order-form button:focus {
   outline: none;
 }
+
+.input-container {
+  position: relative;
+}
+
+.counter {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  opacity: 0.5;
+}
