@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import './Form.css';
 import { useTelegram } from "../../hooks/useTelegram";
 
+const MAX_NAME_LENGTH = 30; // Maximum allowed name length
+
 const Form = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('+7');
@@ -9,6 +11,7 @@ const Form = () => {
     const [floor, setFloor] = useState('0');
     const [room, setRoom] = useState('0');
     const [agreementAccepted, setAgreementAccepted] = useState(false); 
+    const [remainingCharacters, setRemainingCharacters] = useState(MAX_NAME_LENGTH);
 
     const { tg } = useTelegram();
 
@@ -46,8 +49,13 @@ const Form = () => {
     }, [name, phone, agreementAccepted]);
 
     const onChangeName = (e) => {
-        setName(e.target.value);
-    };
+      const inputName = e.target.value;
+      const sanitizedName = inputName.replace(/[^a-zA-Zа-яА-Я]/g, ''); // Allow only Russian and English letters
+      const truncatedName = sanitizedName.slice(0, MAX_NAME_LENGTH);
+      const remainingChars = MAX_NAME_LENGTH - truncatedName.length;
+      setName(truncatedName);
+      setRemainingCharacters(remainingChars);
+  };
 
     const onChangePhone = (e) => {
         const inputValue = e.target.value;
@@ -88,13 +96,18 @@ const Form = () => {
             </label>
           </div>
           <h3>Введите ваши данные</h3>
-          <input
-            className="input"
-            type="text"
-            placeholder="Имя"
-            value={name}
-            onChange={onChangeName}
-          />
+          <div className="name-input-container">
+                <input
+                    className={`input ${remainingCharacters === 0 ? 'red' : 'grey'}`}
+                    type="text"
+                    placeholder="Имя"
+                    value={name}
+                    onChange={onChangeName}
+                />
+                <div className="counter" style={{ opacity: '0.5' , color: remainingCharacters === 0 ? 'red' : 'grey'}}>
+                    {remainingCharacters}
+                </div>
+            </div>
           <div className="phone-input-container">
                 <input
                     className="phone-input"

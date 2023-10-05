@@ -126,3 +126,18 @@ h3 {
   color: var(--tg-theme-text-color);
   background-color: var(--tg-theme-secondary-bg-color);
 }
+
+.name-input-container {
+  position: relative;
+}
+
+.input {
+  padding-right: 30px; /* Add some space to accommodate the counter */
+}
+
+.counter {
+  position: absolute;
+  top: 45%;
+  right: 10px;
+  opacity: 0.5;
+}
