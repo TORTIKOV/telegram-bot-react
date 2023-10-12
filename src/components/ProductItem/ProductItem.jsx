@@ -7,7 +7,6 @@ import wbImage from '../../images/wildberries_logo.png';
 import lentaImage from '../../images/lenta_logo.png';
 import andreikaImage from '../../images/andreyka_logo.png';
 import pharmacyImage from '../../images/pharma_logo.png'; // New image
-import vapeImage from '../../images/vape_logo.png';
 import otherImage from '../../images/others_logo.png'; 
 
 const ProductItem = ({ product, className, onAdd, isSelected, isClickable }) => {
@@ -37,10 +36,8 @@ const ProductItem = ({ product, className, onAdd, isSelected, isClickable }) => 
       case 4:
         return andreikaImage;
       case 5:
-        return pharmacyImage; // New image
+        return pharmacyImage; // New image 
       case 6:
-        return vapeImage;    
-      case 7:
         return otherImage;    // New image
       default:
         return null; // If no image is available for the product
@@ -60,8 +57,7 @@ const ProductItem = ({ product, className, onAdd, isSelected, isClickable }) => 
         {product.id === 3 && 'Лента'}
         {product.id === 4 && 'Андрейка'}
         {product.id === 5 && 'Аптека'}
-        {product.id === 6 && 'ПункВейп'}
-        {product.id === 7 && 'Другое'}
+        {product.id === 6 && 'Другое'}
       </div>
       
       <Button

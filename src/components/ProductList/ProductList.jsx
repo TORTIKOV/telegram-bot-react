@@ -9,8 +9,7 @@ const products = [
   { id: 3, title: 'Лента' },
   { id: 4, title: 'Андрейка' },
   { id: 5, title: 'Аптека' }, // New item
-  { id: 6, title: 'ПункВейп' },
-  { id: 7, title: 'Другое(указать в комментариях)' },    // New item
+  { id: 6, title: 'Другое(указать в комментариях)' },    // New item
 ];
 
 const MAX_LENGTHS = {
